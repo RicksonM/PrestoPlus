@@ -1,0 +1,249 @@
+section#contratos {
+    width: 1000px;
+    height: 600px;
+    margin: 60px auto 200px auto;
+}
+
+div#perfil {
+    width: 200px;
+    height: 150px;
+    border: 1px solid #707070;
+    position: relative;
+    float: left;
+}
+
+section#contratos::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+div#perfil > p {
+    font-family: LatoMedium;
+    font-size: 12px;
+    padding: 9px 8px;
+    border-bottom: 1px solid #707070;
+    position: relative;
+}
+
+div#perfil > p > span {
+    color: #2185D0;
+    cursor: pointer;
+    position: absolute;
+    top: 4px;
+    right: 8px;
+}
+
+div#user {
+    margin: 8px 5px;
+}
+
+div#user::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+div#user > img {
+    width: 39px;
+    height: 42px;
+    float: left;
+}
+
+div#user > div {
+    float: left;
+    margin: 6px 0px 0 16px;
+}
+
+div#user > div > p {
+    font-family: LatoBold;
+    font-size: 12px;
+}
+
+div#user > div > p:last-child {
+    font-family: LatoMedium;
+}
+
+div#opcEdit {
+    width: 100%;
+    height: 100%;
+    padding: 40px 0 0 0;
+    text-align: center;
+    background-color: white;
+    z-index: -1;
+    opacity: 0;
+    transition: 0.5s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+div#opcEdit > span {
+    font-family: LatoBold;
+    font-size: 8px;
+    color: rgba(255, 0, 0, 0.87);
+    cursor: pointer;
+    padding: 2px;
+    position: absolute;
+    top: 3px;
+    right: 5px;
+}
+
+div#opcEdit > a {
+    color: black;
+    text-decoration: none;
+    font-family: latoMedium;
+    font-size: 12px;
+    line-height: 20px;
+    display: block;
+}
+
+div#opcEdit > a:hover {
+    text-decoration: underline;
+}
+
+/* Div todos contratos */
+div#tContratos {
+    width: 735px;
+    height: 100%;
+    padding-bottom: 30px;
+    border: 1px solid #707070;
+    float: left;
+    margin-left: 63px;
+    overflow-y: auto;
+    position: relative;
+}
+
+div#tContratos > p:first-child {
+    font-family: LatoMedium;
+    font-size: 12px;
+    padding: 10px 16px;
+    color: white;
+    background-color: #2185D0;
+    border-bottom: 1px solid #707070;
+}
+
+div#tContratos > form {
+    float: right;
+    margin: 20px 5% 30px 0;
+}
+
+div#tContratos select {
+    font-family: LatoMedium;
+    font-size: 12px;
+    color: #000000DE;
+    width: 200px;
+    padding: 9px 15px;
+    border-radius: 4px;
+}
+
+div#tContratos > ul {
+   list-style-type: none;
+   font-family: LatoMedium;
+   position: absolute;
+   bottom: 20px;
+   left: 50%;
+   transform: translateX(-50%);
+}
+
+div#tContratos > ul::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+div#tContratos > ul > li {
+    float: left;
+    margin-left: 5px;
+}
+
+div#tContratos > ul > li > a {
+    color: black;
+    text-decoration: none;
+    transition-duration: .3s;
+}
+
+div#tContratos > ul > li > a:hover {
+    color: #2185D0;
+    text-decoration: underline;
+}
+
+div.divContrato:first-of-type {
+    clear: right;
+}
+
+div.divContrato {
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid #70707080;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-top: 20px;
+    overflow-x: hidden;
+}
+
+div.divContrato::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+div.divContrato > p:first-child {
+    font-family: LatoRegular;
+    font-size: 12px;
+    width: 320px;
+    overflow-x: hidden;
+    white-space: nowrap;
+    float: left;
+    position: relative;
+    top: 4px;
+}
+
+
+div.divContrato > p:first-child > span:first-child {
+    font-family: LatoBold;
+    font-size: 10px;
+    /* color: rgb(75, 181, 67); */
+    /* color: rgb(156, 138, 2); */
+    /* color: #F32013; */
+}
+
+div.divContrato > p:first-child > span:last-child {
+    font-family: LatoBold;
+    font-size: 10px;
+}
+
+
+div.divContrato > .btnExibirContr {
+    font-family: LatoBold;
+    font-size: 10px;
+    color: #FFFFFF;
+    background-color: #2185D0;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+div.divContrato > p:nth-of-type(2) {
+    float: right;
+    font-family: LatoRegular;
+    font-size: 9px;
+    margin-right: 10px;
+    position: relative;
+    top: 7px;
+}
+
+div.divContrato > p:nth-of-type(2) {
+    margin-right: 40px;
+}
+
+div.divContrato > p:nth-of-type(2) > span:first-child {
+    margin-right: 20px;
+}
+
+/* Form contrato fixed*/
+span#btnContratoCan {
+    margin-left: 56%;
+}

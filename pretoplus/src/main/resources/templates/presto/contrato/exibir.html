@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/logado.css">
+    <link rel="stylesheet" href="/css/perfilprestador.css">
+    <link rel="stylesheet" href="/css/gifsLibras.css">
+    <link rel="stylesheet" href="/css/contPrest.css">
+    <link rel="stylesheet" href="/css/cadastro.css">
+    <link rel="stylesheet" href="/css/buscar.css">
+    
+    <title>Contratar Prestador</title>
+</head>
+
+<body>
+   <!-- INICIO HEADER -->
+     <header >
+        <a href="index.html" id="logo">
+            <img src="/img/prestologo.png" alt="Logo">
+            <span id="titLogo">Presto</span>
+        </a>
+        <!-- Verificações feitas com tymeleaf para saber se o usuário está logado ou não  -->
+        <form  action="/pesquisaProfissao" method="post" id="buscaPre">
+            <input type="search" name="profissao"  placeholder="Busque por profissionais..." id="inpSearch">
+            <button type="submit" id="busca"><img src="/img/icon/search-solid.svg" alt="Buscar"></button>
+        </form>
+        
+    
+        <ul th:if="${session.user != null}" id="logCad">
+            <li><a th:href="@{/busca}">Buscar</a></li>
+             <li><a th:href="${session.user != null ?  '' : '@{/inseriruser}'}"></a></li>
+        </ul>
+        
+         <ul th:unless="${session.user != null}" id="logCad">
+            <li><a th:href="@{/busca}">Buscar</a></li>
+            <li><a th:href="@{/inseriruser}">Cadastre-se</a></li>
+            <li><a th:href="@{/login}">Login</a></li>
+        </ul>
+       
+                  <!-- Container logado -->
+   
+   		<div  class="containerLog1" th:if="${session.user.email != null}">
+   			<img class="borda" th:if="${session.user.file != null}"  th:src="|/img/perfil/${session.user.file}|"  alt="foto do perfil">
+   			<img class="borda" th:unless="${session.user.file != null}"   src="/img/prestologo.png"  alt="foto do perfil">
+            <span th:text="${session.user != null ?  session.user.email : ''}" class="nome"><span class="cliPres"></span></span>
+             <div class="inforPerf">
+                <span><a th:href="@{/editarS/{login}(login=${session.user.email})}"><span class="infCliPres" th:text="${session.user != null ?  session.user.email+' (Cliente)' : ''}" onclick="mudarStatPrest()"></span></a></span>
+                
+                <span><a th:href="@{/cadP/{login}(login=${session.user.email})}"><span class="infCliPres" th:text="${session.user != null ?  session.user.email+' (Prestador)' : ''}" onclick="mudarStatPrest()"></span></a></span>
+                <hr class="hrDiv">
+                <span class="sobrePerfil"><a th:href="@{/teste/{email}(email=${session.user.email})}">Meus contratos</a></span>
+                <span class="sobrePerfil"><a th:href="@{/editarS/{login}(login=${session.user.email})}">Editar perfil</a></span>
+                <span class="sobrePerfil"><a href="#">Meu perfil</a></span>
+                <hr class="hrDiv">
+                <span class="sair"><a th:href="@{/logout}">Sair</a></span>
+            </div>
+        </div>
+        <div th:unless="${session.user != null}">
+        
+        </div>
+
+          
+    </header>
+    <!-- FIM HEADER -->
+    <!-- INICIO NAV -->
+   <nav>
+        <ul id="menu">
+            <li><a th:href="@{/}">Início</a></li>
+            <li><a th:href="@{/sobre}">Sobre</a></li>
+            <li><a th:href="@{#}">Contato</a></li>
+        </ul>
+    </nav>
+    <!-- FIM NAV -->
+
+    <!-- INICIO CONTRATO FIXED -->
+    <form action="/detail" method="post"  th:object="${contratos}" class="novo">
+        <p id="titForm">Contratar prestador</p>
+
+        
+        <input type="hidden"  class="inpContrato" th:field="*{contratante}" id="inpContratante" placeholder="Nome do cliente">
+        <input type="hidden" class="inpContrato" th:field="*{id}" id="inpContratante" >
+
+      
+        <input type="hidden"  class="inpContrato" th:field="*{contratado}" id="inpContratado" placeholder="Nome do prestador">
+
+        <label for="descServico" class="labContrato">Descrição do serviço/obra a ser realizado</label>
+        <textarea name="" class="areaDescSer" id="descServico" rows="5" th:field="*{descricao}" placeholder="Descreva aqui a obra"></textarea>
+        
+        <label for="divFotos" class="labContrato">Imagens referente ao serviço</label>
+        <input type="file" id="fileElem" th:field="*{file}" multiple accept="image/*"  onchange="handleFiles(this.files)">
+        
+     
+        <div id="fileList">
+           <div class="zoom">
+			<img style="width:150px; heigth:150px" th:src="|/img/contratos/*{file}|" class="img-responsive">
+				<div class="text-item">
+					
+				</div>
+			</div>	
+        </div>
+      
+        
+
+        <label for="dataIni" class="labContrato date lUm">Data de início
+            <a href="#" id="fileSelect">Escolher arquivo(s)</a>
+        </label>
+        <label for="dataTer" class="labContrato date">Data do término</label>
+
+        <input type="date" class="inpContrato date iUm" th:field="*{datainicio}" id="dataIni" onmouseover="MudarCorDaIni()">
+        <input type="date" class="inpContrato date" th:field="*{datafim}" id="dataTer" onmouseover="MudarCorDaTer()">
+
+        <label for="inpDinheiro" class="labContrato">Quantia a ser paga</label>
+        <input type="text" th:field="*{valor}" class="inpContrato mar" id="inpDinheiro" placeholder="Insira aqui o valor">
+		
+		
+		
+
+		 <div th:if="${contratos.status != 'Aceito'}">
+	     <label for="inpDinheiro" class="labContrato">Aceitar proposta?</label>
+		 <select  name="andamento" th:field="*{status}" id="estado"  class="selClas" onchange="mudarEst(this.value)">
+                <option class="optClas" value="Aceito" >Aceitar</option>
+                <option class="optClas" value="Recusado">Recusar</option>
+                <option class="optClas" value="Pendente">Contra-proposta</option>
+         </select>
+         </div>
+         <div th:unless="${contratos.status != 'Aceito'}">
+         </div>
+
+        <input type="checkbox" name="" id="checkAceitarCli" class="inpCheck">
+        <label for="checkAceitarCli" class="labContrato check mar">Estou de acordo com o contrato</label>
+
+        <input type="checkbox" name="" id="checkAceitarPres" class="inpCheck">
+        <label for="checkAceitarPres" class="labContrato check">Estou de acordo com o contrato</label>
+
+        <span class="desCheck spUm">Contratante</span>
+        <span class="desCheck">Contratado</span><br>
+        
+        <button type="submit" id="btnContratoEnv">Aceitar</button>
+    
+    </form>
+    <!-- FIM CONTRATO FIXED -->
+
+    <!-- INICIO FOOTER -->
+    <footer>
+        <a href="index.html" id="logoFooter">
+            <img src="/img/prestologo.png" alt="Logo">
+            <span id="titLogoFooter">Presto</span>
+        </a>
+        <span id="direitos">2011-2020 © Todos os direitos reservados. Presto® é uma marca registrada de Presto
+            Tecnologia.</span>
+    </footer>
+    <!-- FIM FOOTER -->
+
+    <script src="/js/contPrest.js"></script>
+    <script src="/js/logado.js"></script>
+</body>
+
+</html>

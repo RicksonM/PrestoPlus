@@ -1,0 +1,21 @@
+section#secSobre {
+    max-width: 1000px;
+    margin: 59px auto 197px auto;
+}
+
+h1.h1Titulo {
+    font-family: latoBold;
+    font-size: 28px;
+    color: #000000DE;
+}
+
+p.pDesc {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    color: #707070;
+    margin: 18px 0 40px 0;
+}
+
+p.pDesc:last-of-type {
+    margin-bottom: 210px;
+}

@@ -1,0 +1,318 @@
+/* INICIO FORMLOGIN */
+form#formCadastro {
+    width: 840px;
+    height: 720px;
+    padding: 0 21px;
+    border: 1px solid #D9D9DA;
+    border-radius: 10px;
+    margin: 10px auto 79px auto;
+}
+
+label.labClass {
+    display: inline-block;
+    font-family: latoBold;
+    font-size: 13px;
+    position: relative;
+}
+
+/* nome */
+label#labPNome {
+    margin: 30px 316px 5px 0;
+}
+
+label#labUNome {
+    
+    margin: 15px 0 5px 0;
+}
+
+input#inpPNome {
+    margin-right: 1.5%;
+}
+
+/* cpf email */
+label#labCPF {
+    margin: 17px 0px 5px 0;
+}
+
+label#labEmail {
+    margin: 17px 366px 5px 0
+}
+
+input#inpEmail {
+    margin-right: 1.5%;
+}
+
+/* telefone*/
+label#labTelF {
+    margin: 17px 0px 5px 0;
+}
+
+label#labCel {
+    margin: 17px 362px 5px 0;
+}
+
+input.inpClass {
+    width: 49%;
+    padding: 10px 17px;
+    border: 1px solid #DEDEDF;
+    border-radius: 4px;
+    font-family: latoMedium;
+}
+
+::placeholder {
+    font-family: latoMedium;
+    font-size: 14px;
+}
+
+label#labDate {
+    margin: 17px 288px 5px 0;
+}
+
+input#inpDate {
+    margin-right: 1.5%;
+    padding: 9px 17px;
+    color: rgba(12, 12, 12, 0.45);
+}
+
+select.selecClass {
+    width: 49%;
+    padding: 10px 17px;
+    border: 1px solid #DEDEDF;
+    border-radius: 4px;
+    font-family: latoMedium;
+    display: inline-block;
+    position: relative;
+}
+
+select#selectEst {
+    color: rgba(12, 12, 12, 0.45);
+    margin-right: 1.5%;
+}
+
+select#selectCid {
+    color: rgba(12, 12, 12, 0.45);
+}
+
+label#labCid {
+    margin: 17px 0px 5px 0;
+}
+
+/* desc whats */
+span#descWhats {
+    display: inline-block;
+    font-family: latoBold;
+    font-size: 13px;
+    margin-left: 17px;
+    position: relative;
+}
+
+label#labWhatsSimId {
+    margin-left: 47px;
+}
+
+label#labWhatsNaoId {
+    margin-left: 41px;
+}
+
+label.labWhatsClass {
+    font-family: latoRegular;
+    font-size: 14px;
+}
+
+/* inicio radio */
+label.labWhatsClass {
+    position: relative;
+}
+
+input#whatsSim {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    visibility: hidden;
+}
+
+span.spanRadioSim {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #D6D6D7;
+    border-radius: 50px;
+    position: absolute;
+    top: 0;
+    left: -21px;
+}
+
+span.spanRadioSim::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+span.spanRadioSim::after {
+    width: 8px;
+    height: 8px;
+    border-radius: 50px;
+    background-color: #0C0C0C;
+}
+
+input#whatsSim:checked ~ span.spanRadioSim::after {
+    display: block;
+}
+
+/* radio nao */
+input#whatsNao {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    visibility: hidden;
+}
+
+span.spanRadioNao {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #D6D6D7;
+    border-radius: 50px;
+    position: absolute;
+    top: 0;
+    left: -21px;
+}
+
+span.spanRadioNao::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+span.spanRadioNao::after {
+    width: 8px;
+    height: 8px;
+    border-radius: 50px;
+    background-color: #0C0C0C;
+}
+
+input#whatsNao:checked ~ span.spanRadioNao::after {
+    display: block;
+}
+
+/* senha */
+label.labClassSenha {
+    margin: 15px 0 5px 0;
+}
+
+input.inpClassSenha {
+    width: 100%;
+}
+
+/* inicio checkbox */
+label#containerCheck {
+    user-select: none;
+    display: inline-block;
+    margin-top: 20px;
+    position: relative;
+}
+
+input#checkConect {
+    position: absolute;
+    left: 20px;
+    visibility: hidden;
+}
+
+span#clique {
+    display: inline-block;
+    width: 19px;
+    height: 18px;
+    border: 1px solid #D4D4D5;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+}
+
+span#clique::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+span#clique::after {
+    width: 5px;
+    height: 9px;
+    top: 2px;
+    left: 5px;
+    border: solid #333333DE;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+label#containerCheck > input#checkConect:checked ~ span#clique::after {
+    display: block;
+}
+/* fim checkbox */
+
+span#descConec {
+    font-family: latoRegular;
+    font-size: 14px;
+    position: relative;
+    top: -3px;
+    left: 10px;
+    user-select: none;
+}
+
+span#descEsq {
+    font-family: latoRegular;
+    font-size: 14px;
+    position: relative;
+    top: -3px;
+    left: 110px;
+}
+
+span#descEsq > a {
+    color: #2185D0;
+}
+
+div#entrarouCadastrar {
+    margin-top: 54px;
+}
+
+button#btnEntrar {
+    width: 90px;
+    height: 35px;
+    font-family: latoBold;
+    font-size: 14px;
+    color: #FFFFFF;
+    background-color: #2185D0;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+span#cadastrado {
+    font-family: latoMedium;
+    font-size: 14px;
+    margin-left: 523px;
+}
+
+a#btnCadastro {
+    display: inline-block;
+    width: 90px;
+    padding: 9px 0;
+    margin-left: 0;
+    font-family: latoBold;
+    font-size: 14px;
+    color: #00000099;
+    text-align: center;
+    text-decoration: none;
+    background-color: #E0E1E2;
+    border-radius: 4px;
+}
+
+label#labEst {
+    margin: 17px 293px 5px 0;
+}
+/* FIM FORMLOGIN */

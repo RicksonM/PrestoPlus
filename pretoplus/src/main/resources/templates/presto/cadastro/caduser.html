@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="stylesheet" href="css/tooltipCadastro.css">
+    <title>Cadastro</title>
+</head>
+<body>
+    <!-- INICIO HEADER -->
+    <header>
+        <a href="index.html" id="logo">
+            <img src="img/prestologo.png" alt="Logo">
+            <span id="titLogo">Presto</span>
+        </a>
+       <form  action="/pesquisaProfissao" method="post" id="buscaPre">
+            <input type="search" name="profissao"  placeholder="Busque por profissionais..." id="inpSearch">
+            <button type="submit" id="busca"><img src="img/icon/search-solid.svg" alt="Buscar"></button>
+        </form>
+        <ul id="logCad">
+            <li><a th:href="@{/login}">Login</a></li>
+            <li><a th:href="@{/inserirsoli}">Cadastre-se</a></li>
+            
+        </ul>
+    </header>
+    <!-- FIM HEADER -->
+
+    <!-- INICIO NAV -->
+    <nav>
+        <ul id="menu">
+            <li><a th:href="@{/}">Início</a></li>
+            <li><a th:href="@{/sobre}">Sobre</a></li>
+            <li><a th:href="@{#}">Contato</a></li>
+        </ul>
+    </nav>
+    <!-- FIM NAV -->
+
+    <!-- INICIO FORMCADASTRO -->
+    <form action="/inseriruser" method="post" id="formCadastro" th:object="${user}" enctype="multipart/form-data" onsubmit="return validarCadastro()">
+        <label for="inpPNome" class="labClass" id="labPNome">Primeiro nome
+            <span class="tooltip"></span>
+        </label>
+        <label for="inpUNome" class="labClass" id="labUNome">Último nome
+            <span class="tooltip"></span>
+        </label>
+        <input type="text" name="" placeholder="Primeiro nome" id="inpPNome" class="inpClass" th:field="*{PNomeSolicitante}" oninput="validarNome()" maxlength="11">
+        <input type="text" name="" placeholder="Último nome" id="inpUNome" class="inpClass" th:field="*{SNomeSolicitante}" oninput="validarSobreNome()" maxlength="11">
+
+        <label for="inpDate" class="labClass" id="labDate">Data de nascimento
+            <span class="tooltip"></span>
+        </label>
+        <label for="inpCPF" class="labClass" id="labCPF">CPF
+            <span class="tooltip"></span>
+        </label>
+        <input type="date" name="" id="inpDate" class="inpClass" th:field="*{datanas}" onmouseover="mudarCorData()" oninput="validarData()">
+        <input type="text" name="" placeholder="CPF" id="inpCPF" class="inpClass" th:field="*{cpf}" onfocus="validarCPF()">
+
+        <label for="inpEmail" class="labClass" id="labEmail">E-mail
+            <span class="tooltip"></span>
+        </label>
+        <label for="inpTelF" class="labClass" id="labTelF">Foto de perfil
+            <span class="tooltip"></span>
+        </label>
+        <input type="email" name="" placeholder="Email" id="inpEmail" class="inpClass" th:field="*{email}" oninput="validarEMAIL()">
+        <input type="file" id="fileElem" name="files" multiple accept="image/*"  onchange="handleFiles(this.files)">
+        <input type="hidden" name="" placeholder="Login"  class="inpClass" th:field="*{tipo}" >
+        <input type="hidden" name="" placeholder="Login"  class="inpClass" th:field="*{login}" >
+        
+        
+        
+        <label for="inpCel" class="labClass" id="labCel">Celular
+            <span class="tooltip"></span>
+        </label>
+        <input type="tel" name="" placeholder="Celular" id="inpCel" class="inpClass" th:field="*{phone}" onfocus="validarCel()">
+
+        <span id="descWhats">É WhatsApp?
+            <span class="tooltip tooltipWhats"></span>
+        </span>
+        <label for="whatsSim" class="labWhatsClass" id="labWhatsSimId" onclick="validarRadios()">Sim
+            <input type="radio" name="whats" id="whatsSim">
+            <span class="spanRadioSim"></span>
+        </label>
+        <label for="whatsNao" class="labWhatsClass" id="labWhatsNaoId" onclick="validarRadios()">Não
+            <input type="radio" name="whats" id="whatsNao">
+            <span class="spanRadioNao"></span>
+        </label><br>
+
+        
+        <label for="selectEst" class="labClass" id="labEst">Estado onde reside
+            <span class="tooltip"></span>
+        </label>
+        <label for="selectCid" class="labClass" id="labCid">Cidade onde reside
+            <span class="tooltip"></span>
+        </label>
+        <!-- estados -->
+        <select name="" th:field="*{local}" id="selectEst" class="selecClass" onchange="mudarEstCad(this.value)" onmouseover="mudarCorEst()">
+            <option class="optClas" value="Selecione o estado">Selecione o estado</option>
+            <option class="optClas" value="pernambuco">Pernambuco</option>
+            <option class="optClas" value="paraíba">Paraíba</option>
+            <option class="optClas" value="ceará">Ceará</option>
+        </select>
+        <!-- cidades -->
+        <select name="" id="selectCid" class="selecClass" onmouseover="mudarCorCid()">
+            <option class="optClas" value="Selecione o estado">Selecione o estado</option>
+        </select>
+
+        <br><label for="inpSenha" class="labClass labClassSenha" id="labSenha">Senha
+            <span class="tooltip"></span>
+        </label>
+        <input type="password" name="" placeholder="8-25 caracteres" id="inpSenha" class="inpClass inpClassSenha" th:field="*{senha}" maxlength="25" oninput="validarSenha()">
+        <label for="inpConSenha" class="labClass labClassSenha" id="labConSenha">Confirme a senha
+            <span class="tooltip"></span>
+        </label>
+        <input type="password" name="" placeholder="8-25 caracteres" id="inpConSenha" class="inpClass inpClassSenha" maxlength="25" oninput="validarConSenha()">
+        
+        <label id="containerCheck" onclick="validarCheckTer()">
+            <span class="tooltip toolTermos"></span>
+            <input type="checkbox" name="" id="checkConect">
+            <span id="clique"></span>
+        </label>
+        <span id="descConec">Eu aceito os termos e condições</span>
+
+        <div id="entrarouCadastrar">
+            <button type="submit" id="btnEntrar">Enviar</button>
+            <span id="cadastrado">Já tem conta?</span>
+            <a href="login.html" id="btnCadastro">Entrar</a>
+        </div>    
+    </form>
+    
+
+    <!-- FIM FORMCADASTRO -->
+
+    <!-- INICIO FOOTER -->
+    <footer>
+        <a href="index.html" id="logoFooter">
+            <img src="img/prestologo.png" alt="Logo">
+            <span id="titLogoFooter">Presto</span>
+        </a>
+        <span id="direitos">2011-2020 © Todos os direitos reservados. Presto® é uma marca registrada de Presto Tecnologia.</span>
+    </footer>
+    <!-- FIM FOOTER -->
+        
+    <script src="js/mascaras.jquery-1.2.6.pack.js"></script>
+    <script src="js/mascaras.jquery.maskedinput-1.1.4.pack.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#inpCPF").mask("999.999.999-99");
+        });
+    
+        $(document).ready(function(){
+            $("#inpTelF").mask("(99) 9999-9999");
+        });
+    
+        $(document).ready(function(){
+            $("#inpCel").mask("(99) 99999-9999");
+        });
+    </script>
+    <script src="js/cadastroSeg.js"></script>
+    <script th:src="@{js/cadastro.js}"></script>
+</body>
+</html>

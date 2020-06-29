@@ -1,0 +1,33 @@
+/* INICIO FORM CLASSICAR PRESTADOR FIXED */
+form.novo{
+    width: 572px;
+    margin: 40px auto 100px auto;
+    padding: 0 35px 20px 35px;
+    border: 1px solid rgba(0, 0, 0, 0.507);
+    border-radius: 4px;
+}
+
+p#titForm {
+    width: 570px;
+}
+
+button#btnContratoCan {
+    font-family: LatoBold;
+    font-size: 14px;
+    color: white;
+    padding: 8px 12px;
+    background-color: red;
+    border: 0;
+    border-radius: 4px;
+    margin-top: 40px;
+    margin-left: 55%;
+    margin-right: 3%;
+    cursor: pointer;
+}
+
+a{
+	color: white;
+	style: none;
+	display: inline;
+	text-decoration: none;
+}

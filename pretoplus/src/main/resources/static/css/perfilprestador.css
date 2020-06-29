@@ -1,0 +1,727 @@
+/* INICIO SECAO PERFIL PRESTADOR */
+section#secPerfilPrestador {
+    max-width: 1000px;
+    margin: 92px auto 200px auto;
+    position: relative;
+}
+
+/* container descrição prestador */
+img#fotPerPrestador {
+    float: left;
+}
+
+div.desPres {
+    float: left;
+    width: 370px;
+    margin-left: 20px;
+    margin-bottom: 50px;
+}
+
+div#containerInfoPrest {
+   clear: left;
+}
+
+span.profPrest {
+    font-family: LatoBold;
+    font-size: 15px;
+    color: #000000DE;
+}
+
+span.nomePrest {
+    font-family: LatoMedium;
+    font-size: 15px;
+    color: #000000DE;
+}
+
+span.desTrab {
+    font-family: LatoMedium;
+    font-size: 14px;
+    color: #000000CC;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+div.desEnd {
+    margin-top: 15px;
+}
+
+span.cid {
+    font-family: LatoRegular;
+    font-size: 12px;
+    margin-bottom: 9px;
+    display: inline-block;
+    padding-left: 8px;
+}
+
+span.tel {
+    font-family: LatoRegular;
+    font-size: 12px;
+    padding-left: 4px;
+}
+
+/* container informções prestador */
+button#contPre {
+    font-family: LatoBold;
+    font-size: 14px;
+    color: #FFFFFF;
+    background-color: #2185D0;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px 26px;
+    cursor: pointer;
+}
+
+div.classf {
+    margin-left: 100px;
+    display: inline-block;
+}
+
+span.titClas {
+    font-family: LatoRegular;
+    font-size: 15px;
+    color: #000000DE;
+}
+
+div.endPrest {
+    margin-top: 65px;
+}
+
+span.LocPres {
+    font-family: LatoMedium;
+    font-size: 15px;
+    color: #000000DE;
+}
+
+span.maisDesEnd {
+    font-family: LatoRegular;
+    font-size: 10px;
+    color: #00000080;
+    margin-top: 13px;
+    display: inline-block;
+}
+
+span.bair {
+    margin-left: 56px;
+}
+
+span.cep {
+    font-family: LatoRegular;
+    font-size: 12px;
+    color: #000000CC;
+}
+
+span.bairro {
+    font-family: LatoRegular;
+    font-size: 12px;
+    color: #000000CC;
+    margin-left: 20px;
+}
+
+button.iniciarChat {
+    font-family: LatoBold;
+    font-size: 22px;
+    color: #FFFFFF;
+    background-color: #00B5AD;
+    border: 0;
+    border-radius: 4px;
+    padding: 13px 63px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+span.desChat {
+    position: relative;
+    top: -4px;
+    left: 0;
+}
+
+
+/* INICIO FORM CONTRATO FIXED */
+div.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #464646A1;
+    z-index: -1; /*-1*/
+    opacity: 0; /*1*/
+    transition: z-index 0.3s, opacity 0.3s; 
+}
+
+div.modalAparece {
+    z-index: 1;
+    opacity: 1;
+}
+
+form.formContrato {
+    width: 572px;
+    height: 100%;
+    overflow-y: auto;
+    padding: 0 35px 20px 35px;
+    background-color: white;
+    position: absolute;
+    top: -50%; /*-50%*/
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: top 1s;
+}
+
+form.formContratoAparece {
+    top: 50%;
+}
+
+p#titForm {
+    font-family: LatoBold;
+    font-size: 16px;
+    color: white;
+    background-color: #2185D0;
+    padding: 13px 37px;
+    width: 555px;
+    position: relative;
+    left: -35px;
+}
+
+label.labContrato {
+    font-family: LatoBold;
+    font-size: 13px;
+    margin: 20px 0 6px 0;
+    display: block;
+}
+
+label.date {
+    display: inline-block;
+}
+
+label.lUm {
+    margin-right: 35.7%;
+    position: relative;
+}
+
+label.check {
+    display: inline-block;
+}
+
+label.mar {
+    margin-right: 14%;
+}
+
+div#fileList {
+    width: 100%;
+    height: 230px;
+    border: 1px solid #DEDEDF;
+    overflow-y: auto;
+    padding: 10px 20px;
+    border-radius: 4px;
+    position: relative;
+}
+
+input#fileElem {
+    position: absolute;
+    bottom: 15%;
+    left: 11%;
+    cursor: pointer;
+    display:none
+}
+
+a#fileSelect {
+    font-family: LatoMedium;
+    padding: 9px 20px;
+    color: #00000099;
+    background-color: #E0E1E2;
+    text-decoration: none;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 320%;
+    left: 20%;
+    z-index: 1;
+    white-space: nowrap;
+}
+
+ul.ulImg {
+    list-style-type: none;
+}
+
+img.imgImg {
+    transition-duration: 1s;
+    width: 100px;
+    height: 80px;
+    margin-right: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+}
+
+img.imgImg:hover + span {
+    display: none;
+}
+
+img.imgImg:hover {
+    width: 100%;
+    height: 200px;
+    border-radius: 4px;
+    z-index: 5;
+}
+
+span.spanImg {
+    position: relative;
+    top: -34px;
+    font-family: LatoRegular;
+    font-size: 14px;
+    word-break: break-all;
+    display: inline-block;
+    width: 310px;
+}
+
+input.inpContrato {
+    padding: 10px 17px;
+    font-family: LatoRegular;
+    font-size: 14px;
+    border: 1px solid #DEDEDF;
+    border-radius: 4px;
+    width: 100%;
+}
+
+input.date {
+    width: 47%;
+    color: #00000080;
+}
+
+input.iUm {
+    margin-right: 5%;
+}
+
+input.inpContrato::placeholder {
+    color: #B5B5B5;
+}
+
+input.inpCheck {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+input.mar {
+    margin-bottom: 15px;
+}
+
+span.desCheck {
+    font-family: LatoRegular;
+    font-size: 13px;
+    color: #333333DE;
+    margin-left: 15%;
+}
+
+span.spUm {
+    margin-right: 27%;
+}
+
+textarea.areaDescSer {
+    padding: 10px 17px;
+    font-family: LatoRegular;
+    font-size: 14px;
+    border: 1px solid #DEDEDF;
+    border-radius: 4px;
+    width: 100%;
+    resize: none;
+}
+
+textarea#descClasfcar {
+    padding: 10px 17px;
+    font-family: LatoRegular;
+    font-size: 14px;
+    border: 1px solid #DEDEDF;
+    border-radius: 4px;
+    width: 100%;
+    resize: none;
+}
+
+span#btnContratoCan {
+    font-family: LatoBold;
+    font-size: 14px;
+    color: #00000099;
+    text-decoration: none;
+    padding: 8px 12px;
+    background-color: #E0E1E2;
+    border: 0;
+    border-radius: 4px;
+    margin-top: 40px;
+    margin-left: 67%;
+    margin-right: 3%;
+    cursor: pointer;
+}
+
+button#btnContratoEnv {
+    font-family: LatoBold;
+    font-size: 14px;
+    color: #FFFFFF;
+    padding: 8px 12px;
+    background-color: #2185D0;
+    border: 0;
+    border-radius: 4px;
+    margin-top: 40px;
+    cursor: pointer;
+}
+/* FIM FORM CONTRATO FIXED*/
+
+
+/* INICIO FORM CLASSICAR PRESTADOR FIXED */
+div.modalClassificar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #464646A1;
+    z-index: -2;
+    opacity: 0;
+    transition: z-index 0.3s, opacity 0.3s;
+}
+
+div.modalClassificarAparece {
+    z-index: 2;
+    opacity: 1;
+}
+
+form.formClasfcar {
+    width: 555px;
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 50%;
+    left: -50%;
+    transform: translate(-50%, -50%);
+    padding: 0 30px 20px 30px;
+    transition: left 1s;
+}
+
+form.formClasfcarAparece {
+    left: 50%;
+}
+
+p.titClasfcar {
+    font-family: LatoBold;
+    font-size: 16px;
+    color: #FFFFFF;
+    background-color: #2185D0;
+    padding: 13px 30px;
+    width: 555px;
+    position: relative;
+    left: -6%;
+}
+
+span.titEstrelas {
+    font-family: LatoMedium;
+    font-size: 12px;
+    color: #000000CC;
+    position: relative;
+    top: -4px;
+    left: 15px;
+}
+
+span.btnCanClasfcar {
+    font-family: LatoBold;
+    font-size: 14px;
+    color: #00000099;
+    padding: 8px 11px;
+    border-radius: 4px;
+    background-color: #E0E1E2;
+    display: inline-block;
+    margin-top: 26px;
+    cursor: pointer;
+    margin-left: 343px;
+}
+
+button#btnEnvClasfcar {
+    font-family: LatoBold;
+    font-size: 14px;
+    padding: 8px 11px;
+    color: #FFFFFF;
+    background-color: #2185D0;
+    border: 0;
+    border-radius: 4px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+/* FIM FORM CLASSICAR PRESTADOR FIXED */
+
+
+/* INICIO RESENHAS */
+hr#hrClassificacao {
+    width: 450px;
+    color: #707070;
+    margin-top: 55px;
+}
+
+section#secDesPres {
+    width: 450px;
+}
+
+p#titSecDesPres {
+    font-family: LatoBold;
+    font-size: 18px;
+    color: #000000DE;
+    margin-top: 20px;
+    display: inline-block; 
+}
+
+button#btnEscAva {
+    font-family: LatoBold;
+    font-size: 14px;
+    padding: 8px 11px;
+    color: #00000099;
+    background-color: #E0E1E2;
+    border: 0;
+    margin-left: 195px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+div.resenhas {
+    position: relative;
+    margin-top: 35px;
+}
+
+span.nomeCliDes {
+    font-family: LatoMedium;
+    font-size: 16px;
+    color: #000000DE;
+    display: inline-block;
+}
+
+span.dEstrelas {
+    display: inline-block; 
+    position: absolute; 
+    top: 0px;
+    right: 0;
+}
+
+span.dEstrelas > i.fa-star {
+    font-size: 16px; 
+    color: #FBBD08; 
+    display: inline-block; 
+    margin-left: -3px;
+}
+
+p.descResenhas {
+    font-family: LatoRegular;
+    color: #000000CC;
+    margin-top: 18px;
+}
+/* FIM RESENHAS */
+
+
+/* INICIO BOX PALAVRAS LIBRAS */
+div#Mlibras {
+    position: fixed;
+    right: 3%;
+    bottom: -230px;
+    z-index: 1;
+    width: 300px;
+    height: 230px;
+    background-color: white;
+    border: 1px solid #707070;
+    box-shadow: 0 0 10px #00000029;
+    display: none;
+    animation-name: abrirMLibras;
+    animation-duration: 1.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.18,.89,.32,1.28);
+}
+
+@keyframes abrirMLibras {
+    0% {bottom: -230px;}
+    40% {bottom: 20px;}
+    50% {bottom: 0px;}
+    60% {bottom: 10px;}
+    70% {bottom: 0px;}
+    80% {bottom: 5px;}
+    100% {bottom: 0px;}
+}
+
+@keyframes fecharMLibras{
+    0% {bottom: 0;}
+    50% {bottom: 50px;}
+    100% {bottom: -230px;}
+ }
+
+span#titMLibras {
+    font-family: LatoMedium;
+    font-size: 15px;
+    color: #000000DE;
+    border-bottom: 1px solid #70707087;
+    display: block;
+    padding: 10px 0 10px 20px;
+    margin-bottom: 20px;
+}
+
+textarea#tMLibras {
+    padding: 0px 25px 0px 25px;
+    height: 110px;
+    width: 100%;
+    resize: none;
+    font-family: LatoRegular;
+    font-size: 14px;
+    border: 0;
+    outline: none;
+    text-transform: lowercase;
+}
+
+span.tCopSuc {
+    font-family: LatoMedium;
+    font-size: 14px;
+    padding: 10px 15px;
+    color: white;
+    background-color: transparent;
+    border-radius: 6px;
+    position: absolute;
+    bottom: 10px;
+    left: 70px;
+    opacity: 0;
+    visibility: hidden;
+    transition-duration: 1s;
+}
+
+span.tCopErr {
+    visibility: visible;
+    background-color: #ff0000b2;  
+    opacity: 1;
+}
+
+span.tCopSucAparece {
+    visibility: visible;
+    background-color: #0A6E16;
+    opacity: 1;
+}
+
+/* FIM BOX PALAVRAS LIBRAS */
+
+
+/* chat 
+div.chat {
+    position: fixed;
+    right: 1%;
+    bottom: -266px; 
+    z-index: 1;
+    width: 300px;
+    height: 312px;
+    background-color: #FFFFFF;
+    border: 1px solid #707070;
+    transition: bottom 1s;
+}
+
+div.infoPresChat {
+    padding: 13px 15px;
+    border-bottom: 1px solid #70707087;
+}
+
+span.nomeUsu {
+    font-family: LatoMedium;
+    font-size: 15px; 
+}
+
+span.online {
+    width: 7px;
+    height: 7px;
+    background-color: #21BA45;
+    display: inline-block;
+    border-radius: 50%;
+    margin-left: 18px;
+    position: relative;
+    top: -1px;
+    left: 0;
+}
+
+span.descOnline {
+    font-family: LatoRegular;
+    font-size: 10px;
+    color: #000000DE;
+    position: relative;
+    top: -2px;
+    left: 0;
+}
+
+div.infoLib {
+    border-top: 1px solid #707070;
+    border-bottom: 1px solid #707070;
+    padding: 5px 15px;
+    width: 100%;
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    cursor: pointer;
+}
+
+span.descLib {
+    font-family: LatoMedium;
+    font-size: 12px;
+    color: #000000CC;
+}
+
+div.mensChat {
+    width: 100%;
+    height: 170px;
+    padding: 10px 10px;
+    overflow-y: auto;
+    color: white;
+    font-family: LatoRegular;
+}
+
+p.falaUsu {
+    width: 100%;
+    height: auto;
+    margin-top: 6%;
+    padding: 10px;
+    background-color: #2185d0;
+    border-radius: 0 3px 3px 3px;
+    word-break: break-all;
+    position: relative;
+    text-transform: lowercase;
+}
+
+p.falaUsu::first-letter {
+    color: brown;
+    text-transform: uppercase;
+}
+
+p.falaUsu::before {
+    content: "";
+    border-width: 7px;
+    border-style: solid;
+    border-color: transparent #2185d0 transparent transparent;
+    position: absolute;
+    top: 0;
+    left: -14px;
+}
+
+p.falaUsu:first-child {
+    margin-top: 0;
+}
+
+p.pDoTextarea::first-letter {
+    color: blueviolet;
+}
+
+textarea.textMens {
+    padding: 5px 15px;
+    border: 0;
+    resize: none;
+    font-family: LatoMedium;
+    color: #000000CC;
+    font-size: 16px;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+}
+
+textarea.textMens::placeholder {
+    font-family: LatoRegular;
+    font-size: 16px;
+    color: #00000099;
+} */
+
+/* FIM SECAO PERFIL PRESTADOR */
