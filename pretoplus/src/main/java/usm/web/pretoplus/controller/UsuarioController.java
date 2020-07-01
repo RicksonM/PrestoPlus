@@ -37,6 +37,7 @@ public class UsuarioController {
 	//Injeção do repositorio UsuarioRepository
 	@Autowired
 	private UsuarioRepository ur;
+	
 	@Autowired
 	private DescricaoRepository dr;
 
@@ -140,8 +141,19 @@ public class UsuarioController {
 
 		if (file.isEmpty()) {
            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
-           return "redirect:uploadStatus";
-       }
+           user.setFile(user.getFile());
+           user.setSenha(new BCryptPasswordEncoder().encode(user.getPassword()));
+	   		user.setEmail(user.getEmail());
+	   		
+	   		//Verificando o tipo do usuario (cliente ou prestador) 
+	   		if(user.getTipo() == "cliente") {
+	   			user.setTipo("cliente");
+	   		} else if (user.getTipo().toString() == "prestador") {
+	   			user.setTipo("prestador");
+	   		}
+	   		ur.save(user);
+	   		return "redirect:/";       
+	   		}
 
        try {
 
@@ -225,10 +237,11 @@ public class UsuarioController {
 	@GetMapping("/busca")
 	public ModelAndView busca(HttpSession session) {  //ALTERAR A PÁGINA ASSIM QUE RECEBER O LAYOUT
 		Usuario usuario = ur.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName());
+		String teste = SecurityContextHolder.getContext().getAuthentication().getName();
 		ModelAndView resultado = new ModelAndView("presto/busca/buscar");
-		List<Usuario> usuarios = ur.findBytipo("prestador"); //Listagem apenas dos prestadores
-		resultado.addObject("usu", usuario);
-		resultado.addObject("user", usuarios);
+		List<Usuario> usuarios = ur.findByprest(teste); //Listagem apenas dos prestadores
+		session.setAttribute("usu", usuario);
+		resultado.addObject("prest", usuarios);
 		return resultado;
 	}
 	
@@ -258,7 +271,7 @@ public class UsuarioController {
 	}
 	
 	
-	@GetMapping("/prestador/{email}")
+	@RequestMapping("/prestador/{email}")
 	public ModelAndView visualizarPrest(@PathVariable String email, HttpSession session) {  //ALTERAR A PÁGINA ASSIM QUE RECEBER O LAYOUT
 		Usuario usuarios = ur.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName());
 		Usuario usuario = ur.getOne(email);
@@ -269,7 +282,7 @@ public class UsuarioController {
 		resultado.addObject("avaliacao", avalia);
 		resultado.addObject("desc", descr);
 		resultado.addObject("contrato", new Contrato()); // CONTRATO PARA SER ACEITO NO MOLDAL DE CONTRATO
-		resultado.addObject("user", usuarios);
+		session.setAttribute("user", usuarios);
 		return resultado;
 	}
 	

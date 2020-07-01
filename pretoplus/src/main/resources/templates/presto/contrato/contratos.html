@@ -82,12 +82,13 @@
 
             <div id="opcEdit">
                 <span onclick="fEditarPer()"><i class="material-icons">close</i></span>
-                <a href="cadastro.html">Perfil cliente</a>
-                <a href="cadastroprestador.html">Perfil prestador</a>
+                <a th:href="@{/editarS/{login}(login=${session.user.email})}">Perfil cliente</a>
+                <a th:href="@{/cadP/{login}(login=${session.user.email})}">Perfil prestador</a>
             </div>
 
             <div id="user">
-                 <img class="borda"  th:src="|/img/perfil/${session.user.file}|"  alt="foto do perfil"> 
+                 <img class="borda" th:if="${session.user.file != null}"  th:src="|/img/perfil/${session.user.file}|"  alt="foto do perfil">
+   			<img class="borda" th:unless="${session.user.file != null}"   src="/img/prestologo.png"  alt="foto do perfil"> 
                 <div>
                     <p th:text="${session.user.email}"></p>
                     <p>Cadastrado <span th:text="${session.user.datanas}"></span></p>

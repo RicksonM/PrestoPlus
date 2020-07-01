@@ -31,6 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers("/caderror").permitAll()
 		.antMatchers("/busca").permitAll()
 		.antMatchers("/inseriruser").permitAll()
+		.antMatchers("/pesquisaProfissao").permitAll()
 		.antMatchers("/sobre").permitAll()
 		.anyRequest().authenticated()
 		.and().formLogin().loginPage("/login").permitAll()

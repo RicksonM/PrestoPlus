@@ -43,7 +43,7 @@ public class ContratoController {
 			ModelAndView resultado = new ModelAndView("presto/contrato/contratos");
 			resultado.addObject("contrato", new Contrato());
 			resultado.addObject("avaliacao", new Descricao());
-			resultado.addObject("user", usuarios);
+			session.setAttribute("user", usuarios);
 			return resultado;
 		}	
 		

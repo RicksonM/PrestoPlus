@@ -40,7 +40,7 @@
        
                   <!-- Container logado -->
    
-   		<div  class="containerLog1" th:if="${session.user.email != null}">
+   		<div  class="containerLog1" th:if="${session.user != null}">
 			<img class="borda" th:if="${session.user.file != null}"  th:src="|/img/perfil/${session.user.file}|"  alt="foto do perfil">
    			<img class="borda" th:unless="${session.user.file != null}"   src="/img/prestologo.png"  alt="foto do perfil">
             <span th:text="${session.user != null ?  session.user.email : ''}" class="nome"><span class="cliPres"></span></span>
@@ -87,10 +87,10 @@
 
             <div class="desEnd">
                 <i class='fas fa-map-marker-alt'></i>
-                <span class="cid"> Recife - PE</span><br>
+                <span th:text="${prestador.local}"class="cid"> Recife - PE</span><br>
 
                 <i class='fas fa-phone-alt'></i>
-                <span class="tel">81 9 1477 1564</span>
+                <span th:text="${prestador.phone}" class="tel">81 9 1477 1564</span>
             </div>
         </div>
 
@@ -167,6 +167,8 @@
     <!-- FIM FOOTER -->
 
     <!-- INICIO CONTRATO FIXED -->
+   
+   
    <div class="modal">
         <form action="/contratos1" th:object="${contrato}"  enctype="multipart/form-data" method="post" class="formContrato">
             <p id="titForm">Contratar prestador</p>

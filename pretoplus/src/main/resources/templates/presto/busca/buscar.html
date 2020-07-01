@@ -14,7 +14,7 @@
 
 <body>
     <!-- INICIO HEADER -->
- <header >
+<header >
         <a href="index.html" id="logo">
             <img src="/img/prestologo.png" alt="Logo">
             <span id="titLogo">Presto</span>
@@ -26,12 +26,12 @@
         </form>
         
     
-        <ul th:if="${session.user != null}" id="logCad">
+        <ul th:if="${session.usu != null}" id="logCad">
             <li><a th:href="@{/busca}">Buscar</a></li>
-             <li><a th:href="${session.user != null ?  '' : '@{/inseriruser}'}"></a></li>
+             <li><a th:href="${session.usu != null ?  '' : '@{/inseriruser}'}"></a></li>
         </ul>
         
-         <ul th:unless="${session.user != null}" id="logCad">
+         <ul th:unless="${session.usu != null}" id="logCad">
             <li><a th:href="@{/busca}">Buscar</a></li>
             <li><a th:href="@{/inseriruser}">Cadastre-se</a></li>
             <li><a th:href="@{/login}">Login</a></li>
@@ -39,24 +39,23 @@
        
                   <!-- Container logado -->
    
-   		<div  class="containerLog1" th:if="${session.user != null}">
-   			  <img class="borda"  th:src="|/img/perfil/${session.user.file}|"  alt="foto do perfil">
-
-   			
-            <span th:text="${session.user != null ?  session.user.email : ''}" class="nome"><span class="cliPres"></span></span>
+   		<div  class="containerLog1" th:if="${session.usu.email != null}">
+				<img class="borda" th:if="${session.usu.file != null}"  th:src="|/img/perfil/${session.usu.file}|"  alt="foto do perfil">
+   				<img class="borda" th:unless="${session.usu.file != null}"   src="/img/prestologo.png"  alt="foto do perfil">		
+            <span th:text="${session.usu != null ?  session.usu.email : ''}" class="nome"><span class="cliPres"></span></span>
              <div class="inforPerf">
-                <span><a th:href="@{/editarS/{login}(login=${session.user.email})}"><span class="infCliPres" th:text="${session.user != null ?  session.user.email+' (Cliente)' : ''}" onclick="mudarStatPrest()"></span></a></span>
+                <span><a th:href="@{/editarS/{login}(login=${session.usu.email})}"><span class="infCliPres" th:text="${session.usu != null ?  session.usu.email+' (Cliente)' : ''}" onclick="mudarStatPrest()"></span></a></span>
                 
-                <span><a th:href="@{/cadP/{login}(login=${session.user.email})}"><span class="infCliPres" th:text="${session.user != null ?  session.user.email+' (Prestador)' : ''}" onclick="mudarStatPrest()"></span></a></span>
+                <span><a th:href="@{/cadP/{login}(login=${session.usu.email})}"><span class="infCliPres" th:text="${session.usu != null ?  session.usu.email+' (Prestador)' : ''}" onclick="mudarStatPrest()"></span></a></span>
                 <hr class="hrDiv">
-                <span class="sobrePerfil"><a th:href="@{/teste/{email}(email=${session.user.email})}">Meus contratos</a></span>
-                <span class="sobrePerfil"><a th:href="@{/editarS/{login}(login=${session.user.email})}">Editar perfil</a></span>
+                <span class="sobrePerfil"><a th:href="@{/teste/{email}(email=${session.usu.email})}">Meus contratos</a></span>
+                <span class="sobrePerfil"><a th:href="@{/editarS/{login}(login=${session.usu.email})}">Editar perfil</a></span>
                 <span class="sobrePerfil"><a href="#">Meu perfil</a></span>
                 <hr class="hrDiv">
                 <span class="sair"><a th:href="@{/logout}">Sair</a></span>
             </div>
         </div>
-        <div th:unless="${session.user != null}">
+        <div th:unless="${session.usu != null}">
         
         </div>
 
@@ -135,10 +134,8 @@
             </form>
 
             <!-- Profissional um -->
-            <div class="listaRes" th:each="user: ${user}">
-
-                <span>   </span> <span th:text="${user.profissao}" class="proEnc"> </span> <span th:text="${user.login}" class="nomeEnc">  </span> 
-
+            <div class="listaRes" th:each="prest: ${prest}">
+                <span> </span> <span th:text="${prest.profissao}" class="proEnc"> </span> <span th:text="${prest.PNomeSolicitante}" class="nomeEnc">  </span> 
                 <span class="clasEstr">Classificação
                     <i class='far fa-star' style='font-size:20px; color: #FBBD08; margin-left: 5px;'></i>
                     <i class='far fa-star' style='font-size:20px; color: #FBBD08;'></i>
@@ -146,12 +143,12 @@
                     <i class='far fa-star' style='font-size:20px; color: #FBBD08;'></i>
                     <i class='far fa-star' style='font-size:20px; color: #FBBD08;'></i>
                 </span>
-                
-                <span class="desProEnc">Trabalho com construção de casas há mais de cinco anos.</span>
+
+                <span class="desProEnc" th:text="${prest.descricao}" ></span>
                 <i class='fas fa-map-marker-alt' style="margin-top: 15px;"></i>
-                <span class="cidade">Recife - PE</span>
+                <span class="cidade" th:text="${prest.local}">Recife - PE</span>
        				
-                 <a th:href="@{/prestador/{email}(email=${user.email})}" class="btnVisPer">Visualizar</a>  
+                 <a th:href="@{/prestador/{email}(email=${prest.email})}" class="btnVisPer">Visualizar</a>  
          
                 
             </div>

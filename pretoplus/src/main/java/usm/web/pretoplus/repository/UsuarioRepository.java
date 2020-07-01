@@ -24,4 +24,9 @@ public interface UsuarioRepository extends JpaRepository<Usuario, String>{
 	@Query("select u from Usuario u where local like %?1% and profissao like %?2%")
 	List<Usuario> findByfiltro(String local, String profissao);
 	
+	
+	@Query("select u from Usuario u where tipo = 'prestador' and email <> ?1")
+	List<Usuario> findByprest(String email);
+	
+	
 }

@@ -15,7 +15,7 @@
 
 <body>
     <!-- INICIO HEADER -->
-   <header >
+    <header >
         <a href="index.html" id="logo">
             <img src="/img/prestologo.png" alt="Logo">
             <span id="titLogo">Presto</span>
@@ -27,12 +27,12 @@
         </form>
         
     
-        <ul th:if="${session.usu != null}" id="logCad">
+        <ul th:if="${session.user != null}" id="logCad">
             <li><a th:href="@{/busca}">Buscar</a></li>
-             <li><a th:href="${session.usu != null ?  '' : '@{/inseriruser}'}"></a></li>
+             <li><a th:href="${session.user != null ?  '' : '@{/inseriruser}'}"></a></li>
         </ul>
         
-         <ul th:unless="${session.usu != null}" id="logCad">
+         <ul th:unless="${session.user != null}" id="logCad">
             <li><a th:href="@{/busca}">Buscar</a></li>
             <li><a th:href="@{/inseriruser}">Cadastre-se</a></li>
             <li><a th:href="@{/login}">Login</a></li>
@@ -40,23 +40,23 @@
        
                   <!-- Container logado -->
    
-   		<div  class="containerLog1" th:if="${session.usu.email != null}">
-				<img class="borda" th:if="${session.usu.file != null}"  th:src="|/img/perfil/${session.usu.file}|"  alt="foto do perfil">
-   				<img class="borda" th:unless="${session.usu.file != null}"   src="/img/prestologo.png"  alt="foto do perfil">		
-            <span th:text="${session.usu != null ?  session.usu.email : ''}" class="nome"><span class="cliPres"></span></span>
+   		<div  class="containerLog1" th:if="${session.user != null}">
+   				<img class="borda" th:if="${session.user.file != null}"  th:src="|/img/perfil/${session.user.file}|"  alt="foto do perfil">
+   			<img class="borda" th:unless="${session.user.file != null}"   src="/img/prestologo.png"  alt="foto do perfil">
+            <span th:text="${session.user != null ?  session.user.email : ''}" class="nome"><span class="cliPres"></span></span>
              <div class="inforPerf">
-                <span><a th:href="@{/editarS/{login}(login=${session.usu.email})}"><span class="infCliPres" th:text="${session.usu != null ?  session.usu.email+' (Cliente)' : ''}" onclick="mudarStatPrest()"></span></a></span>
+                <span><a th:href="@{/editarS/{login}(login=${session.user.email})}"><span class="infCliPres" th:text="${session.user != null ?  session.user.email+' (Cliente)' : ''}" onclick="mudarStatPrest()"></span></a></span>
                 
-                <span><a th:href="@{/cadP/{login}(login=${session.usu.email})}"><span class="infCliPres" th:text="${session.usu != null ?  session.usu.email+' (Prestador)' : ''}" onclick="mudarStatPrest()"></span></a></span>
+                <span><a th:href="@{/cadP/{login}(login=${session.user.email})}"><span class="infCliPres" th:text="${session.user != null ?  session.user.email+' (Prestador)' : ''}" onclick="mudarStatPrest()"></span></a></span>
                 <hr class="hrDiv">
-                <span class="sobrePerfil"><a th:href="@{/teste/{email}(email=${session.usu.email})}">Meus contratos</a></span>
-                <span class="sobrePerfil"><a th:href="@{/editarS/{login}(login=${session.usu.email})}">Editar perfil</a></span>
+                <span class="sobrePerfil"><a th:href="@{/teste/{email}(email=${session.user.email})}">Meus contratos</a></span>
+                <span class="sobrePerfil"><a th:href="@{/editarS/{login}(login=${session.user.email})}">Editar perfil</a></span>
                 <span class="sobrePerfil"><a href="#">Meu perfil</a></span>
                 <hr class="hrDiv">
                 <span class="sair"><a th:href="@{/logout}">Sair</a></span>
             </div>
         </div>
-        <div th:unless="${session.usu != null}">
+        <div th:unless="${session.user != null}">
         
         </div>
 
@@ -131,7 +131,7 @@
     <!-- INICIO FOOTER -->
     <footer>
         <a href="index.html" id="logoFooter">
-            <img src="img/prestologo.png" alt="Logo">
+            <img src="/img/prestologo.png" alt="Logo">
             <span id="titLogoFooter">Presto</span>
         </a>
         <span id="direitos">2011-2020 © Todos os direitos reservados. Presto® é uma marca registrada de Presto
@@ -140,11 +140,11 @@
     <!-- FIM FOOTER -->
 
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <script th:src="@{js/cadastroprestador.js}"></script>
-    <script th:src="@{js/logado.js}"></script>
-     <script src="js/mascaras.jquery-1.2.6.pack.js"></script>
-    <script src="js/mascaras.jquery.maskedinput-1.1.4.pack.js"></script>
-    <script src="js/cadastroSeg.js"></script>
-    <script th:src="@{js/cadastro.js}"></script>
+    <script th:src="@{/js/cadastroprestador.js}"></script>
+    <script th:src="@{/js/logado.js}"></script>
+     <script th:src="@{/js/mascaras.jquery-1.2.6.pack.js}"></script>
+    <script th:src="@{/js/mascaras.jquery.maskedinput-1.1.4.pack.js}"></script>
+    <script th:src="@{/js/cadastroSeg.js}"></script>
+    <script th:src="@{/js/cadastro.js}"></script>
 </body>
 </html>

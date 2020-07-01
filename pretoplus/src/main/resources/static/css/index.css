@@ -160,12 +160,15 @@ footer {
     height: 150px;
     padding: 0 13.5% 0 13.5%;
     background-color: #2185D0;
+    
 }
 
 a#logoFooter {
     position: relative;
     top: 42px;
     text-decoration: none;
+    font-family: LatoBold;
+
 }
 
 span#titLogoFooter {
