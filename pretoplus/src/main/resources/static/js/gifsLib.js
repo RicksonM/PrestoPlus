@@ -76,11 +76,11 @@ function abrirGifs() {
 
 function fecharGifs(event) {
     if (event.target.id == "fecGifs") {
-        document.getElementById("secaoCatGifs").style.left = "-50%";
+        document.getElementById("secaoCatGifs").style.left = "-100%";
     } else {
         let boxLibras = document.getElementById("Mlibras");
         boxLibras.style.animationName = "fecharMLibras";
-        document.getElementById("secaoCatGifs").style.left = "-50%";
+        document.getElementById("secaoCatGifs").style.left = "-100%";
     } 
 }
 
