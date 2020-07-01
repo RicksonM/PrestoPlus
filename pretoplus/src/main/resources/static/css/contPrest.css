@@ -25,9 +25,13 @@ button#btnContratoCan {
     cursor: pointer;
 }
 
-a{
+a {
 	color: white;
-	style: none;
-	display: inline;
 	text-decoration: none;
+}
+
+button#btnContratoEnv {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
