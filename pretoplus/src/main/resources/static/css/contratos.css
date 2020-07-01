@@ -191,7 +191,7 @@ div.divContrato::after {
 div.divContrato > p:first-child {
     font-family: LatoRegular;
     font-size: 12px;
-    width: 320px;
+    width: 120px;
     overflow-x: hidden;
     white-space: nowrap;
     float: left;
@@ -219,11 +219,33 @@ div.divContrato > .btnExibirContr {
     font-size: 10px;
     color: #FFFFFF;
     background-color: #2185D0;
-    padding: 6px 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     float: right;
+}
+
+div.divContrato > .btnExibirContr:last-of-type {
+    margin-right: 10px;
+}
+
+div.divContrato > .btnExibirContr > a {
+    color: white;
+    text-decoration: none;
+    padding: 6px 10px;
+    display: inline-block;
+}
+
+span.desContr {
+    font-family: LatoMedium;
+    font-size: 12px;
+    position: relative;
+    top: 4px;
+    display: inline-block;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 div.divContrato > p:nth-of-type(2) {
