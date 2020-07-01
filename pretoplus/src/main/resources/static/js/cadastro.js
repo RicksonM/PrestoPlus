@@ -116,3 +116,7 @@ function mudarCorCid() {
     too[9].classList.remove("toolAparece");
 }
 
+function getNomeimgPer() {
+   document.getElementById("desimg").innerText = document.getElementById("fileElem").value;
+}
+

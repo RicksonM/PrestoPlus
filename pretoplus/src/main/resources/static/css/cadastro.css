@@ -6,6 +6,7 @@ form#formCadastro {
     border: 1px solid #D9D9DA;
     border-radius: 10px;
     margin: 10px auto 79px auto;
+    position: relative;
 }
 
 label.labClass {
@@ -57,6 +58,39 @@ input.inpClass {
     border: 1px solid #DEDEDF;
     border-radius: 4px;
     font-family: latoMedium;
+}
+
+input#fileElem {
+    height: 40px;
+    position: relative;
+    top: -10px;
+    cursor: pointer;
+    opacity: 0;
+}
+
+span#desimg {
+    font-family: LatoRegular;
+    font-size: 12px;
+    position: absolute;
+    top: 30%;
+    right: 6%;
+    display: inline-block;
+    width: 250px;
+}
+
+span#btnFPerfil {
+    font-family: LatoBold;
+    padding: 9px 12px;
+    font-size: 12px;
+    color: #00000099;
+    background-color: #E0E1E2;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    position: absolute;
+    top: 29%;
+    right: 37.6%;
+    z-index: -1;
 }
 
 ::placeholder {
