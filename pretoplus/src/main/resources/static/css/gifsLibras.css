@@ -7,7 +7,7 @@ section#secaoCatGifs {
     padding: 30px 200px 100px 30px;
     position: fixed;
     bottom: 0%;
-    left: -50%;
+    left: -100%;
     transform: translateX(-50%);
     font-family: LatoMedium;
     overflow-y: scroll;

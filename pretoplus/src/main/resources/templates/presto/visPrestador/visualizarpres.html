@@ -76,13 +76,12 @@
 
     <!-- INICIO SECAO PERFIL PRESTADOR -->
     <section id="secPerfilPrestador">
-
-    	<div th:object="${prestador}" class="desPres">
-        <img style="width:80px;" th:src="|/img/perfil/${prestador.file}|" alt="foto do prestador" class="borda"  id="fotPerPrestador">
-
+        <img th:src="|/img/perfil/${prestador.file}|" alt="foto do prestador" class="borda"  id="fotPerPrestador">
+        
+        <div th:object="${prestador}" class="desPres">
         
             <span th:text="${prestador.profissao}" class="profPrest">Pedreiro</span>
-            <span  th:text="${prestador.PNomeSolicitante}"  class="nomePrest"> - João da Silva dos Santos</span><br>
+            <span  th:text="${prestador.PNomeSolicitante}"  class="nomePrest"> - João da Silva dos Santos</span>
             <span  th:text="${prestador.descricao}" class="desTrab">Trabalho com construção de casas há mais de cinco anos.</span><br>
 
             <div class="desEnd">

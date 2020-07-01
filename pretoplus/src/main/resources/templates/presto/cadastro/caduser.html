@@ -64,7 +64,8 @@
             <span class="tooltip"></span>
         </label>
         <input type="email" name="" placeholder="Email" id="inpEmail" class="inpClass" th:field="*{email}" oninput="validarEMAIL()">
-        <input type="file" id="fileElem" name="files" multiple accept="image/*"  onchange="handleFiles(this.files)">
+        <input type="file" id="fileElem" name="files" accept="image/*" onchange="handleFiles(this.files)" oninput="getNomeimgPer()" onclick="validarFPerfil()">
+        <span id="btnFPerfil">Escolher Foto</span> <span id="desimg">Nenhuma imagem selecionada</span>
         <input type="hidden" name="" placeholder="Login"  class="inpClass" th:field="*{tipo}" >
         <input type="hidden" name="" placeholder="Login"  class="inpClass" th:field="*{login}" >
         

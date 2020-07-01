@@ -9,7 +9,7 @@ let iCPF = document.getElementById("inpCPF");
 // EMAIL
 let iEMAIL = document.getElementById("inpEmail");
 // TELEFONE
-let iTEL = document.getElementById("inpTelF");
+let iFPerf = document.getElementById("fileElem");
 // CELULAR
 let iCEL = document.getElementById("inpCel");
 // CHECKBOXS
@@ -73,11 +73,11 @@ function validarCadastro() {
         too[4].classList.add("toolAparece");
     }
 
-    // // VERIFICA TELEFONE
-    // if (iTEL.value == "") {
-    //     too[5].innerText = "Não pode estar vazio";
-    //     too[5].classList.add("toolAparece");
-    // }
+    // VERIFICA FOTO DO PERFIL
+    if (iFPerf.value == "") {
+        too[5].innerText = "Selecione uma imagem";
+        too[5].classList.add("toolAparece");
+    }
 
     // VERIFICA CELULAR
     if (iCEL.value == "") {
@@ -171,10 +171,10 @@ function validarCadastro() {
         return false;
     }
 
-    // // RETORNA TELEFONE
-    // if (iTEL.value == "") {
-    //     return false;
-    // }
+    // RETORNA FOTO DO PERFIL
+    if (iTEL.value == "") {
+        return false;
+    }
 
     // RETORNA CELULAR
     if (iCEL.value == "") {
@@ -288,7 +288,7 @@ function validarEMAIL() {
     too[4].classList.remove("toolAparece");
 }
 
-function validarTel() {
+function validarFPerfil() {
     too[5].classList.remove("toolAparece");
 }
 
