@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/loginerror.css">
+    <title>Login não realizado!</title>
+</head>
+<body>
+    <!-- INICIO HEADER -->
+    <header>
+        <a href="index.html" id="logo">
+            <img src="img/prestologo.png" alt="Logo">
+            <span id="titLogo">Presto</span>
+        </a>
+        <form action="pag.php" id="buscaPre">
+            <input type="search" name="search" placeholder="Busque por profissionais..." id="inpSearch">
+            <button type="submit" id="busca"><img src="img/icon/search-solid.svg" alt="Buscar"></button>
+        </form>
+        <ul id="logCad">
+            <li><a th:href="@{/login}">Login</a></li>
+            <li><a th:href="@{/inserirsoli}">Cadastre-se</a></li>
+        </ul>
+    </header>
+    <!-- FIM HEADER -->
+
+    <!-- INICIO NAV -->
+    <nav>
+        <ul id="menu">
+           <li><a th:href="@{/}">Início</a></li>
+           <li><a th:href="@{sobre}">Sobre</a></li>
+           <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </nav>
+    <!-- FIM NAV -->
+
+    <!-- INICIO DIV LOGIN COM ERROR-->
+    <div class="divError">
+        <img src="img/icon/imgCadError.svg" alt="imagem login não realizado" class="imgError">
+        <p class="titError">Ocorreu um erro ao realizar seu login!</p>
+        <a href="login.html" class="btnError">Logar novamente</a>
+    </div>
+    <!-- FIM DIV LOGIN COM ERROR -->
+
+    <!-- INICIO FOOTER -->
+    <footer>
+        <a href="index.html" id="logoFooter">
+            <img src="img/prestologo.png" alt="Logo">
+            <span id="titLogoFooter">Presto</span>
+        </a>
+        <span id="direitos">2011-2020 © Todos os direitos reservados. Presto® é uma marca registrada de Presto Tecnologia.</span>
+    </footer>
+    <!-- FIM FOOTER -->
+</body>
+</html>

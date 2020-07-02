@@ -1,0 +1,133 @@
+/* INICIO FORMLOGIN */
+form#formLogin {
+    width: 500px;
+    padding: 40px 55px;
+    border: 1px solid #000000B3;
+    border-radius: 10px;
+    margin: 70px auto 270px auto;
+}
+
+label.labClass {
+    display: block;
+    font-family: latoBold;
+    font-size: 13px;
+    position: relative;
+}
+
+label#labEmail {
+    margin: 0px 0 5px 0;
+}
+
+label#labSenha {
+    margin: 15px 0 5px 0;
+}
+
+input.inpClass {
+    width: 100%;
+    padding: 10px 17px;
+    border: 1px solid #DEDEDF;
+    border-radius: 4px;
+    font-family: latoMedium;
+}
+
+::placeholder {
+    font-family: latoMedium;
+    font-size: 14px;
+}
+
+/* inicio checkbox */
+label#containerCheck {
+    user-select: none;
+    display: inline-block;
+    margin-top: 20px;
+    position: relative;
+}
+
+input#checkConect {
+    position: absolute;
+    left: 20px;
+    visibility: hidden;
+}
+
+span#clique {
+    display: inline-block;
+    width: 19px;
+    height: 18px;
+    border: 1px solid #D4D4D5;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+}
+
+span#clique::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+span#clique::after {
+    width: 5px;
+    height: 9px;
+    top: 2px;
+    left: 5px;
+    border: solid #333333DE;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+label#containerCheck > input#checkConect:checked ~ span#clique::after {
+    display: block;
+}
+/* fim checkbox */
+
+span#descConec {
+    font-family: latoRegular;
+    font-size: 14px;
+    position: relative;
+    top: -3px;
+    left: 10px;
+    user-select: none;
+}
+
+span#descEsq {
+    font-family: latoRegular;
+    font-size: 14px;
+    position: relative;
+    top: -3px;
+    left: 110px;
+}
+
+span#descEsq > a {
+    color: #2185D0;
+}
+
+div#entrarouCadastrar {
+    margin-top: 54px;
+}
+
+button#btnEntrar {
+    width: 90px;
+    height: 35px;
+    font-family: latoBold;
+    font-size: 14px;
+    color: #FFFFFF;
+    background-color: #2185D0;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+a#btnCadastro {
+    display: inline-block;
+    width: 90px;
+    padding: 9px 0;
+    margin-left: 204px;
+    font-family: latoBold;
+    font-size: 14px;
+    color: #00000099;
+    text-align: center;
+    text-decoration: none;
+    background-color: #E0E1E2;
+    border-radius: 4px;
+}
+/* FIM FORMLOGIN */

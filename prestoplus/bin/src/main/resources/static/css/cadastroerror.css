@@ -1,0 +1,41 @@
+div.divError {
+    width: 840px;
+    padding: 30px;
+    margin: 100px auto 300px auto;
+    border-radius: 10px;
+    background-color: #ff33332b;
+}
+
+img.imgError {
+    width: 60px;
+    display: block;
+    margin: 0 auto;
+}
+
+p.titError {
+    font-family: LatoMedium;
+    font-size: 32px;
+    color: #ff3333;
+    text-align: center;
+    margin: 30px 0 50px 0;
+}
+
+a.btnError {
+    padding: 10px 0px;
+    width: 250px;
+    text-align: center;
+    text-decoration: none;
+    font-family: LatoBold;
+    font-size: 22px;
+    display: block;
+    margin: 0 auto;
+    color: #FFFFFF;
+    background-color: #2185D0;
+    border-radius: 4px;
+    border: 0;
+}
+
+a.btnError:hover {
+    background-color: rgb(29, 125, 199);
+}
+
