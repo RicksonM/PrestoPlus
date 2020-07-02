@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <title>Cadastro</title>
+</head>
+<body>
+    <!-- INICIO HEADER -->
+    <header>
+        <a href="index.html" id="logo">
+            <img src="img/prestologo.png" alt="Logo">
+            <span id="titLogo">Presto</span>
+        </a>
+        <form action="pag.php" id="buscaPre">
+            <input type="search" name="search" placeholder="Busque por profissionais..." id="inpSearch">
+            <button type="submit" id="busca"><img src="img/icon/search-solid.svg" alt="Buscar"></button>
+        </form>
+        <ul id="logCad">
+            <li><a th:href="@{/login}">Login</a></li>
+            <li><a th:href="@{/inserirsoli}">Cadastre-se</a></li>
+            <li><a th:href="@{/logout}">Logout</a></li>
+            
+        </ul>
+    </header>
+    <!-- FIM HEADER -->
+
+    <!-- INICIO NAV -->
+    <nav>
+        <ul id="menu">
+            <li><a th:href="@{/}">Início</a></li>
+            <li><a th:href="@{/sobre}">Sobre</a></li>
+            <li><a th:href="@{#}">Contato</a></li>
+        </ul>
+    </nav>
+    <!-- FIM NAV -->
+
+    <!-- INICIO FORMCADASTRO -->
+    <form action="/inserirsoli" method="post" id="formCadastro" th:object="${solicitante}">
+        <label for="inpPNome" class="labClass" id="labPNome" >Primeiro nome</label>
+        <label for="inpUNome" class="labClass" id="labUNome" >Último nome</label>
+        <input type="text" name="" placeholder="Primeiro nome" id="inpPNome" class="inpClass" th:field="*{PNomeSolicitante}">
+        <input type="text" name="" placeholder="Último nome" id="inpUNome" class="inpClass" th:field="*{SNomeSolicitante}">
+
+        <label for="inpCPF" class="labClass" id="labCPF">CPF</label>
+        <label for="inpEmail" class="labClass" id="labEmail">E-mail</label>
+        <input type="text" name="" placeholder="CPF" id="inpCPF" class="inpClass" th:field="*{cpf}">
+        <input type="email" name="" placeholder="Email" id="inpEmail" class="inpClass" th:field="*{Email}">
+
+        <label for="inpTelF" class="labClass" id="labTelF">Telefone fixo</label>
+        <label for="inpCel" class="labClass" id="labCel">Celular</label>
+        <input type="tel" name="" placeholder="Telefone fixo" id="inpTelF" class="inpClass" th:field="*{fixo}">
+        <input type="tel" name="" placeholder="Celular" id="inpCel" class="inpClass" th:field="*{phone}">
+
+        <span id="descWhats">É WhatsApp?</span>
+        <label for="whatsSim" class="labWhatsClass" id="labWhatsSimId">Sim
+            <input type="radio" name="whats" id="whatsSim">
+            <span class="spanRadioSim"></span>
+        </label>
+        <label for="whatsNao" class="labWhatsClass" id="labWhatsNaoId">Não
+            <input type="radio" name="whats" id="whatsNao">
+            <span class="spanRadioNao"></span>
+        </label>
+        <br>
+
+        <label for="inpSenha" class="labClass labClassSenha" id="labSenha">Senha</label>
+        <input type="password" name="" placeholder="8-25 characters" id="inpSenha" class="inpClass inpClassSenha" th:field="*{senha}">
+        <label for="inpConSenha" class="labClass labClassSenha" id="labConSenha">Confirme a senha</label>
+        <input type="password" name="" placeholder="8-25 characters" id="inpConSenha" class="inpClass inpClassSenha">
+        
+        <label id="containerCheck">
+            <input type="checkbox" name="" id="checkConect">
+            <span id="clique"></span>
+        </label>
+        <span id="descConec">Eu aceito os termos e condições</span>
+       
+        <div id="entrarouCadastrar">
+            <button type="submit" id="btnEntrar">Enviar</button>
+            <span id="cadastrado">Já tem conta?</span>
+            <a href="login.html" id="btnCadastro">Entrar</a>
+        </div>    
+    </form>
+    <!-- FIM FORMCADASTRO -->
+
+    <!-- INICIO FOOTER -->
+    <footer>
+        <a href="index.html" id="logoFooter">
+            <img src="img/prestologo.png" alt="Logo">
+            <span id="titLogoFooter">Presto</span>
+        </a>
+        <span id="direitos">2011-2020 © Todos os direitos reservados. Presto® é uma marca registrada de Presto Tecnologia.</span>
+    </footer>
+    <!-- FIM FOOTER -->
+</body>
+</html>
