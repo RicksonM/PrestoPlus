@@ -280,9 +280,11 @@ public class UsuarioController {
 		ModelAndView resultado = new ModelAndView("presto/visPrestador/visualizarpres");
 		Descricao avalia = new Descricao();
 		List<Descricao> descr = dr.findByperfil(email);
+		Long nota = dr.mediaUser(email);
 		resultado.addObject("prestador", usuario);
 		resultado.addObject("avaliacao", avalia);
 		resultado.addObject("desc", descr);
+		resultado.addObject("nota", nota);
 		resultado.addObject("contrato", new Contrato()); // CONTRATO PARA SER ACEITO NO MOLDAL DE CONTRATO
 		session.setAttribute("user", usuarios);
 		return resultado;

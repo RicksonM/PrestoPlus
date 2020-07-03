@@ -97,12 +97,57 @@
             <button id="contPre" onclick="abrirFormContrato()">Contratar</button>
             <div class="classf">
                 <span class="titClas">Classificação</span>
-                <i class='fas fa-star' id="sZero" style='font-size:20px; color: #FBBD08; margin-left: 5px;'></i>
-                <i class='fas fa-star' id="sUm" style='font-size:20px; color: #FBBD08;'></i>
-                <i class='fas fa-star' id="sDois" style='font-size:20px; color: #FBBD08;'></i>
-                <i class='far fa-star' id="sTres" style='font-size:20px; color: #FBBD08;'></i>
-                <i class='far fa-star' id="sQuatro" style='font-size:20px; color: #FBBD08;'></i>
+                <div th:if="${nota == 0}">
+	                <i class='far fa-star' id="sZero" style='font-size:20px; color: #FBBD08; margin-left: 5px;'></i>
+	                <i class='far fa-star' id="sUm" style='font-size:20px; color: #FBBD08;'></i>
+	                <i class='far fa-star' id="sDois" style='font-size:20px; color: #FBBD08;'></i>
+	                <i class='far fa-star' id="sTres" style='font-size:20px; color: #FBBD08;'></i>
+	                <i class='far fa-star' id="sQuatro" style='font-size:20px; color: #FBBD08;'></i>
+	             </div>
+	              <div th:if="${nota == 1}">
+	                <i class='fas fa-star' id="sZero" style='font-size:20px; color: #FBBD08; margin-left: 5px;'></i>
+	                <i class='far fa-star' id="sUm" style='font-size:20px; color: #FBBD08;'></i>
+	                <i class='far fa-star' id="sDois" style='font-size:20px; color: #FBBD08;'></i>
+	                <i class='far fa-star' id="sTres" style='font-size:20px; color: #FBBD08;'></i>
+	                <i class='far fa-star' id="sQuatro" style='font-size:20px; color: #FBBD08;'></i>
+	             </div>
+	              <div th:if="${nota == 2}">
+	                <i class='fas fa-star' id="sZero" style='font-size:20px; color: #FBBD08; margin-left: 5px;'></i>
+	                <i class='fas fa-star' id="sUm" style='font-size:20px; color: #FBBD08;'></i>
+	                <i class='far fa-star' id="sDois" style='font-size:20px; color: #FBBD08;'></i>
+	                <i class='far fa-star' id="sTres" style='font-size:20px; color: #FBBD08;'></i>
+	                <i class='far fa-star' id="sQuatro" style='font-size:20px; color: #FBBD08;'></i>
+	             </div>
+	              <div th:if="${nota == 3}">
+	                <i class='fas fa-star' id="sZero" style='font-size:20px; color: #FBBD08; margin-left: 5px;'></i>
+	                <i class='fas fa-star' id="sUm" style='font-size:20px; color: #FBBD08;'></i>
+	                <i class='fas fa-star' id="sDois" style='font-size:20px; color: #FBBD08;'></i>
+	                <i class='far fa-star' id="sTres" style='font-size:20px; color: #FBBD08;'></i>
+	                <i class='far fa-star' id="sQuatro" style='font-size:20px; color: #FBBD08;'></i>
+	             </div>
+	              <div th:if="${nota == 4}">
+	                <i class='fas fa-star' id="sZero" style='font-size:20px; color: #FBBD08; margin-left: 5px;'></i>
+	                <i class='fas fa-star' id="sUm" style='font-size:20px; color: #FBBD08;'></i>
+	                <i class='fas fa-star' id="sDois" style='font-size:20px; color: #FBBD08;'></i>
+	                <i class='fas fa-star' id="sTres" style='font-size:20px; color: #FBBD08;'></i>
+	                <i class='far fa-star' id="sQuatro" style='font-size:20px; color: #FBBD08;'></i>
+	             </div>
+	              <div th:if="${nota == 5}">
+	                <i class='fas fa-star' id="sZero" style='font-size:20px; color: #FBBD08; margin-left: 5px;'></i>
+	                <i class='fas fa-star' id="sUm" style='font-size:20px; color: #FBBD08;'></i>
+	                <i class='fas fa-star' id="sDois" style='font-size:20px; color: #FBBD08;'></i>
+	                <i class='fas fa-star' id="sTres" style='font-size:20px; color: #FBBD08;'></i>
+	                <i class='fas fa-star' id="sQuatro" style='font-size:20px; color: #FBBD08;'></i>
+	             </div>
+	             <div th:if="${nota == null}">
+	                <i class='far fa-star' id="sZero" style='font-size:20px; color: #FBBD08; margin-left: 5px;'></i>
+	                <i class='far fa-star' id="sUm" style='font-size:20px; color: #FBBD08;'></i>
+	                <i class='far fa-star' id="sDois" style='font-size:20px; color: #FBBD08;'></i>
+	                <i class='far fa-star' id="sTres" style='font-size:20px; color: #FBBD08;'></i>
+	                <i class='far fa-star' id="sQuatro" style='font-size:20px; color: #FBBD08;'></i>
+	             </div>
             </div>
+            
 
             <div class="endPrest">
                 <span class="LocPres">Localização</span><br>
@@ -121,7 +166,37 @@
 
             <div th:each="desc: ${desc}" class="resenhas" style="margin-top: 60px;">
                 <span th:text="${desc.avaliador}" class="nomeCliDes">Lucas Santos</span>
-
+					
+				<!-- GUAMBIARRA PARA CLASSIFICAÇÃO  -->
+				
+				<div th:if="${desc.nota == 1}">
+                <span class="dEstrelas">
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </span>
+                </div>
+                <div th:if="${desc.nota == 2}">
+                <span class="dEstrelas">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </span>
+                </div>
+                <div th:if="${desc.nota == 3}">
+                <span class="dEstrelas">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </span>
+                </div>
+                <div th:if="${desc.nota == 4}">
                 <span class="dEstrelas">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -129,6 +204,26 @@
                     <i class="fas fa-star"></i>
                     <i class="far fa-star"></i>
                 </span>
+                </div>
+                <div th:if="${desc.nota == 5}">
+                <span class="dEstrelas">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </span>
+                </div>
+                <div th:if="${desc.nota == 0 }">
+                <span class="dEstrelas">
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </span>
+                </div>
+                <!-- GUAMBIARRA PARA CLASSIFICAÇÃO  -->
 
                 <p th:text="${desc.avaliacao}" class="descResenhas">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -222,17 +317,35 @@
 			
             <label for="descClasfcar" class="labContrato">Escreva aqui sua apinião</label>
             <textarea name="" th:field="*{avaliacao}" id="descClasfcar" rows="8" placeholder="Deixe sua breve opinião o(a) respeito do(a) prestador(a)"></textarea>
+	
 
-            <span class="tEstrelas" style="display: inline-block; margin-top: 33px;">
-                <i class="far fa-star" style='font-size: 32px; color: #FBBD08; display: inline-block; margin-left: 0px; cursor: pointer;'></i>
+            <span class="tEstrelas"  style="display: none; margin-top: 33px;">
+                <i class="far fa-star"  style='font-size: 32px; color: #FBBD08; display: inline-block; margin-left: 0px; cursor: pointer;'></i>
                 <i class="far fa-star" style='font-size: 32px; color: #FBBD08; display: inline-block; margin-left: -3px; cursor: pointer;'></i>
                 <i class="far fa-star" style='font-size: 32px; color: #FBBD08; display: inline-block; margin-left: -3px; cursor: pointer;'></i>
                 <i class="far fa-star" style='font-size: 32px; color: #FBBD08; display: inline-block; margin-left: -3px; cursor: pointer;'></i>
                 <i class="far fa-star" style='font-size: 32px; color: #FBBD08; display: inline-block; margin-left: -3px; cursor: pointer;'></i>
             </span>
+           
+            
             <span class="titEstrelas">Quantas estrelas você o(a) classificaria?</span><br>
             <input type="text" id="txtNumEstre" style="position: relative; z-index: -1; opacity: 0;">
 
+
+			<div class="estrelas">
+			  <input th:field="*{nota}" type="radio" id="cm_star-empty" name="fb" value="1"/>
+			  <label for="cm_star-1"><i class="fa"></i></label>
+			  <input th:field="*{nota}" type="radio" id="cm_star-1" name="fb" value="1"/>
+			  <label for="cm_star-2"><i class="fa"></i></label>
+			  <input th:field="*{nota}" type="radio" id="cm_star-2" name="fb" value="2"/>
+			  <label for="cm_star-3"><i class="fa"></i></label>
+			  <input th:field="*{nota}" type="radio" id="cm_star-3" name="fb" value="3"/>
+			  <label for="cm_star-4"><i class="fa"></i></label>
+			  <input th:field="*{nota}" type="radio" id="cm_star-4" name="fb" value="4"/>
+			  <label for="cm_star-5"><i class="fa"></i></label>
+			  <input th:field="*{nota}" type="radio" id="cm_star-5" name="fb" value="5"/>
+			</div>
+		
             <span class="btnCanClasfcar" onclick="fecharClasfcar()">Cancelar</span>
             <button type="submit" id="btnEnvClasfcar">Enviar</button>
         </form>

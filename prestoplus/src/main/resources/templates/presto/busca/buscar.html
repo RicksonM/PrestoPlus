@@ -39,7 +39,7 @@
        
                   <!-- Container logado -->
    
-   		<div  class="containerLog1" th:if="${session.usu.email != null}">
+   		<div  class="containerLog1" th:if="${session.usu != null}">
 				<img class="borda" th:if="${session.usu.file != null}"  th:src="|/img/perfil/${session.usu.file}|"  alt="foto do perfil">
    				<img class="borda" th:unless="${session.usu.file != null}"   src="/img/prestologo.png"  alt="foto do perfil">		
             <span th:text="${session.usu != null ?  session.usu.email : ''}" class="nome"><span class="cliPres"></span></span>

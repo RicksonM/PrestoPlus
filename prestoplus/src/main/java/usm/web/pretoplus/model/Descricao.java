@@ -19,6 +19,7 @@ public class Descricao {
 	private String profissinal;
 	private String avaliador;
 	private String avaliacao;
+	private int nota;
 	
 	@ManyToMany
 	private List<Usuario> usuario;
@@ -31,12 +32,13 @@ public class Descricao {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Descricao(String profissinal, String avaliador, String avaliacao, List<Usuario> usuario) {
+	public Descricao(String profissinal, String avaliador, String avaliacao, List<Usuario> usuario, int nota) {
 		super();
 		this.profissinal = profissinal;
 		this.avaliador = avaliador;
 		this.setAvaliacao(avaliacao);
 		this.usuario = usuario;
+		this.nota = nota;
 	}
 
 	public String getProfissinal() {
@@ -70,6 +72,14 @@ public class Descricao {
 
 	public void setAvaliacao(String avaliacao) {
 		this.avaliacao = avaliacao;
+	}
+
+	public int getNota() {
+		return nota;
+	}
+
+	public void setNota(int nota) {
+		this.nota = nota;
 	}
 	
 	

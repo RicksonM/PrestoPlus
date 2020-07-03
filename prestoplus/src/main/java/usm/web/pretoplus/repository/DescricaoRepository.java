@@ -15,4 +15,10 @@ public interface DescricaoRepository extends JpaRepository<Descricao, String> {
 	@Query("select u from Descricao u where u.profissinal = :email")
 	List<Descricao> findByperfil(@Param("email") String email);
 	
+	
+	
+	@Query("select round(avg(nota), 1) from Descricao u where u.profissinal = :email")
+	Long mediaUser(@Param("email") String email);
+//	
+	
 }

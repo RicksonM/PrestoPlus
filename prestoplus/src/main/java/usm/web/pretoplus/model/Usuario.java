@@ -31,6 +31,7 @@ public class Usuario  implements UserDetails{
 	private String profissao;
 	private String tipo;
 	private String file;
+	private Long media;
 
 
 
@@ -53,7 +54,7 @@ public class Usuario  implements UserDetails{
 
 
 	public Usuario(String login, String senha, String pNomeSolicitante, String sNomeSolicitante, String cpf,
-			String email, String phone, String datanas, String descricao, String local, String profissao, String file) {
+			String email, String phone, String datanas, String descricao, String local, String profissao, String file, Long media) {
 		super();
 		this.login = login;
 		this.senha = senha;
@@ -67,6 +68,7 @@ public class Usuario  implements UserDetails{
 		this.local = local;
 		this.profissao = profissao;
 		this.file = file;
+		this.media = media;
 	}
 
 
@@ -131,6 +133,19 @@ public class Usuario  implements UserDetails{
 
 	
 	
+
+	public Long getMedia() {
+		return media;
+	}
+
+
+	public void setMedia(Long media) {
+		this.media = media;
+	}
+
+
+
+
 
 	public String getSenha() {
 		return senha;
