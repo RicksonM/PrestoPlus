@@ -8,7 +8,6 @@ section#secPerfilPrestador {
 /* container descrição prestador */
 img#fotPerPrestador {
     float: left;
-    width: 80px;
 }
 
 div.desPres {
@@ -20,6 +19,7 @@ div.desPres {
 
 div#containerInfoPrest {
    clear: left;
+   position: relative;
 }
 
 span.profPrest {
@@ -40,8 +40,6 @@ span.desTrab {
     color: #000000CC;
     margin-top: 5px;
     display: inline-block;
-    width: 290px;
-    word-wrap: break-word;
 }
 
 div.desEnd {
@@ -134,6 +132,23 @@ button.iniciarChat {
     right: 0;
 }
 
+i.iChat {
+    font-size: 30px; 
+    position: relative; 
+    top: 4px; 
+    left: 0;
+}
+
+i.iLibras {
+    font-size: 24px;
+}
+
+button.libras {
+    top: 80px;
+    padding: 13px 61px; 
+    background-color: #2185d0;
+}
+
 span.desChat {
     position: relative;
     top: -4px;
@@ -149,8 +164,8 @@ div.modal {
     width: 100%;
     height: 100%;
     background-color: #464646A1;
-    z-index: -1; /*-1*/
-    opacity: 0; /*1*/
+    z-index: -1;
+    opacity: 0;
     transition: z-index 0.3s, opacity 0.3s; 
 }
 
@@ -166,7 +181,7 @@ form.formContrato {
     padding: 0 35px 20px 35px;
     background-color: white;
     position: absolute;
-    top: -50%; /*-50%*/
+    top: -50%;
     left: 50%;
     transform: translate(-50%, -50%);
     transition: top 1s;
@@ -196,6 +211,7 @@ label.labContrato {
 
 label.date {
     display: inline-block;
+
 }
 
 label.lUm {
@@ -461,6 +477,7 @@ hr#hrClassificacao {
 
 section#secDesPres {
     width: 450px;
+    position: relative;
 }
 
 p#titSecDesPres {
@@ -600,5 +617,131 @@ span.tCopSucAparece {
     background-color: #0A6E16;
     opacity: 1;
 }
+
 /* FIM BOX PALAVRAS LIBRAS */
+
+
+/* chat 
+div.chat {
+    position: fixed;
+    right: 1%;
+    bottom: -266px; 
+    z-index: 1;
+    width: 300px;
+    height: 312px;
+    background-color: #FFFFFF;
+    border: 1px solid #707070;
+    transition: bottom 1s;
+}
+
+div.infoPresChat {
+    padding: 13px 15px;
+    border-bottom: 1px solid #70707087;
+}
+
+span.nomeUsu {
+    font-family: LatoMedium;
+    font-size: 15px; 
+}
+
+span.online {
+    width: 7px;
+    height: 7px;
+    background-color: #21BA45;
+    display: inline-block;
+    border-radius: 50%;
+    margin-left: 18px;
+    position: relative;
+    top: -1px;
+    left: 0;
+}
+
+span.descOnline {
+    font-family: LatoRegular;
+    font-size: 10px;
+    color: #000000DE;
+    position: relative;
+    top: -2px;
+    left: 0;
+}
+
+div.infoLib {
+    border-top: 1px solid #707070;
+    border-bottom: 1px solid #707070;
+    padding: 5px 15px;
+    width: 100%;
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    cursor: pointer;
+}
+
+span.descLib {
+    font-family: LatoMedium;
+    font-size: 12px;
+    color: #000000CC;
+}
+
+div.mensChat {
+    width: 100%;
+    height: 170px;
+    padding: 10px 10px;
+    overflow-y: auto;
+    color: white;
+    font-family: LatoRegular;
+}
+
+p.falaUsu {
+    width: 100%;
+    height: auto;
+    margin-top: 6%;
+    padding: 10px;
+    background-color: #2185d0;
+    border-radius: 0 3px 3px 3px;
+    word-break: break-all;
+    position: relative;
+    text-transform: lowercase;
+}
+
+p.falaUsu::first-letter {
+    color: brown;
+    text-transform: uppercase;
+}
+
+p.falaUsu::before {
+    content: "";
+    border-width: 7px;
+    border-style: solid;
+    border-color: transparent #2185d0 transparent transparent;
+    position: absolute;
+    top: 0;
+    left: -14px;
+}
+
+p.falaUsu:first-child {
+    margin-top: 0;
+}
+
+p.pDoTextarea::first-letter {
+    color: blueviolet;
+}
+
+textarea.textMens {
+    padding: 5px 15px;
+    border: 0;
+    resize: none;
+    font-family: LatoMedium;
+    color: #000000CC;
+    font-size: 16px;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+}
+
+textarea.textMens::placeholder {
+    font-family: LatoRegular;
+    font-size: 16px;
+    color: #00000099;
+} */
+
 /* FIM SECAO PERFIL PRESTADOR */
