@@ -1,0 +1,346 @@
+/* INICIO RESPONSIVO */
+@media only screen and (max-width: 1400px) {
+    section#secaoCatGifs {
+        width: 80%;
+    }
+}
+
+
+@media only screen and (max-width: 1100px) {
+    section#secPerfilPrestador {
+        max-width: 800px;
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    section#secPerfilPrestador {
+        max-width: 700px;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    button.iniciarChat {
+        font-size: 18px;
+        padding: 8px 33px;
+    }
+
+    i.iChat {
+        font-size: 20px;
+    }
+
+    span.desChat {
+        position: relative;
+        top: 0px;
+        left: 0;
+    }
+
+    button.libras {
+        top: 50px;
+        padding: 8px 29.5px;
+    }
+
+    i.iLibras {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    section#secPerfilPrestador {
+        max-width: 600px;
+    }
+
+    button.iniciarChat {
+        font-size: 18px;
+        padding: 8px 20px;
+    }
+
+    button.libras {
+        top: 50px;
+        padding: 8px 16.5px;
+    } 
+
+    /* Gifs Libras */
+    section#secaoCatGifs {
+        padding: 50px 10px;
+    }
+
+    div.catSaudacao {
+        margin-left: 0;
+    }
+}
+
+
+@media only screen and (max-width: 700px) {
+    section#secPerfilPrestador {
+        max-width: 460px;
+    }
+
+    button.iniciarChat {
+        font-size: 18px;
+        padding: 8px 20px;
+        top: 250px;
+        right: 23px;
+    }
+
+    button.libras {
+        padding: 8px 16.5px;
+        top: 300px;
+    } 
+
+    hr#hrClassificacao {
+        width: 100%;
+    }
+
+    /* Form contrato */
+    p#titForm {
+        width: 100%;
+    }
+
+    form.formContrato {
+        width: 500px;
+        height: 100%;
+        padding: 5px;
+    }
+
+    label.mar {
+        margin-right: 52%;
+    }
+
+    span.desCheck {
+        display: none;
+    }
+
+    span#btnContratoCan {
+        margin-left: 66%;
+    }
+
+    /* Form classificar */
+    form.formClasfcar {
+        width: 80%;
+    }
+
+    p.titClasfcar {
+        width: 100%;
+    }
+
+    span.btnCanClasfcar {
+       margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    section#secPerfilPrestador {
+        max-width: 380px;
+    }
+
+    button.iniciarChat {
+        font-size: 18px;
+        padding: 8px 20px;
+        top: 250px;
+        right: 0px;
+    }
+
+    button.libras {
+        padding: 8px 16.5px;
+        top: 300px;
+    } 
+
+    div.desPres {
+        float: left;
+        width: 280px;
+        margin-left: 20px;
+        margin-bottom: 50px;
+    }
+
+    div.classf {
+        margin-left: 30px;
+        display: inline-block;
+    }
+
+    section#secDesPres {
+        width: auto;
+    }
+
+    button#btnEscAva {
+        margin-left: 123px;
+    }
+
+    /* Form contrato */
+    p#titForm {
+        width: 100%;
+    }
+
+    form.formContrato {
+        width: 400px;
+        height: 100%;
+        padding: 5px;
+    }
+
+    label.mar {
+        margin-right: 42%;
+    }
+
+    span.desCheck {
+        display: none;
+    }
+
+    span#btnContratoCan {
+        margin-left: 50%;
+    }
+
+    /* Form classificar */
+    form.formClasfcar {
+        width: 80%;
+    }
+
+    p.titClasfcar {
+        width: 100%;
+    }
+
+    span.btnCanClasfcar {
+       margin-left: -75px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    section#secPerfilPrestador {
+        max-width: 340px;
+    }
+
+    div.desPres {
+        width: 240px;
+        margin-left: 10px;
+    }
+
+    div.classf {
+        margin-left: 0px;
+    }
+
+    button#btnEscAva {
+        margin-left: 83px;
+    }
+
+    form.formClasfcar {
+        width: 80%;
+    }
+
+    p.titClasfcar {
+        width: 100%;
+    }
+
+    span.btnCanClasfcar {
+       margin-left: -70px;
+    }
+
+    /* Form classificar */
+    form.formClasfcar {
+        width: 80%;
+    }
+
+    p.titClasfcar {
+        width: 100%;
+    }
+
+    span.btnCanClasfcar {
+       margin-left: -110px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    section#secPerfilPrestador {
+        max-width: 330px;
+    }
+
+    div.desPres {
+        width: 240px;
+        margin-left: 10px;
+    }
+
+    div.classf {
+        position: absolute;
+        top: -20%;
+        left: 15%;
+    }
+
+    button#btnEscAva {
+        margin-left: 0px;
+        position: absolute;
+        top: 1.5%;
+        right: 0;
+    }
+
+    /* Form contrato */
+    p#titForm {
+        width: 100%;
+    }
+
+    form.formContrato {
+        width: 340px;
+        height: 100%;
+        padding: 5px;
+    }
+
+    label.mar {
+        margin-right: 31%;
+    }
+
+    span.desCheck {
+        display: none;
+    }
+
+    span#btnContratoCan {
+        margin-left: 50%;
+    }
+}
+
+@media only screen and (max-width: 340px) {
+    section#secPerfilPrestador {
+        max-width: 320px;
+    }
+
+    p#titForm {
+        width: 100%;
+    }
+
+    form.formContrato {
+        width: 300px;
+        height: 100%;
+        padding: 5px;
+    }
+
+    label.mar {
+        margin-right: 28%;
+    }
+
+    span.desCheck {
+        display: none;
+    }
+
+    span#btnContratoCan {
+        margin-left: 35%;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    section#secPerfilPrestador {
+        max-width: 300px;
+    }
+
+    div.desPres {
+        width: 220px;
+        margin-left: 10px;
+    }
+
+    /* Form classificar */
+    form.formClasfcar {
+        width: 80%;
+    }
+
+    p.titClasfcar {
+        width: 100%;
+    }
+
+    span.btnCanClasfcar {
+       margin-left: -200px;
+    }
+}
