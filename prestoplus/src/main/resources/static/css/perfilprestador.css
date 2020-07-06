@@ -537,7 +537,7 @@ p.descResenhas {
 /* INICIO BOX PALAVRAS LIBRAS */
 div#Mlibras {
     position: fixed;
-    right: 3%;
+    right: 34%;
     bottom: -230px;
     z-index: 1;
     width: 300px;
