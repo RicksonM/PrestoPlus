@@ -12,6 +12,8 @@ import usm.web.pretoplus.model.Usuario;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, String>{
+
+	
 	Usuario findByEmail(String email);
 	
 	
@@ -29,6 +31,11 @@ public interface UsuarioRepository extends JpaRepository<Usuario, String>{
 	@Query("select u from Usuario u where tipo = 'prestador' and email <> ?1")
 	List<Usuario> findByprest(String email);
 	
+	
+//	@Query("select round(avg(nota), 1) from Descricao u where u.profissinal = :email")
+//	Long pegaMedia(@Param("email") String email);
+//
+//	
 //	@Query("update Usuario u set u.media = :media where u.email = :email")
 //	Long atribuiMedia(@Param("email") String email, @Param("media") Long media);
 

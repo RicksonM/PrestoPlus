@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/index1.css"> <!--<link rel="stylesheet" href="css/index.css">-->
+    <link rel="stylesheet" href="/css/index1.css"> <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="/css/logado.css">
     <link rel="stylesheet" href="/css/buscar.css">
 	
@@ -39,8 +39,8 @@
                   <!-- Container logado -->
    
    		<div  class="containerLog1" th:if="${session.user != null}">
-				<img class="borda" style="border-radius: 45px;" th:if="${session.user.file != null}"  th:src="|/img/perfil/${session.user.file}|"  alt="foto do perfil">
-   				<img class="borda" style="border-radius: 45px;" th:unless="${session.user.file != null}"   src="/img/prestologo.png"  alt="foto do perfil">		
+				<img class="borda" style="border-radius: 45px; width:30px; height:30px;" th:if="${session.user.file != null}"  th:src="|/img/perfil/${session.user.file}|"  alt="foto do perfil">
+   				<img class="borda" style="border-radius: 45px; width:30px; height:30px; " th:unless="${session.user.file != null}"   src="/img/prestologo.png"  alt="foto do perfil">		
             <span th:text="${session.user != null ?  session.user.email : ''}" class="nome"><span class="cliPres"></span></span>
              <div class="inforPerf">
                 <span><a th:href="@{/editarS/{login}(login=${session.user.email})}"><span class="infCliPres" th:text="${session.user != null ?  session.user.email+' (Cliente)' : ''}" onclick="mudarStatPrest()"></span></a></span>
