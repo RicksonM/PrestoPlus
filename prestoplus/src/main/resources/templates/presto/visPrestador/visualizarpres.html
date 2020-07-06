@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/perfilprestador.css">
     <link rel="stylesheet" href="/css/gifsLibras.css">
     <link rel="stylesheet" href="/css/perfilprestadorRespon.css">
+    <link rel="stylesheet" href="/css/chat.css">
     <title>Visualizar Prestador</title>
 </head>
 
@@ -238,7 +239,7 @@
         </section>
         <!-- FIM RESENHAS -->
 
-        <button class="iniciarChat">
+        <button class="iniciarChat" onclick="abrirChat()">
             <i class="material-icons">message</i>
             <span class="desChat">Chat</span>
         </button>
@@ -438,8 +439,24 @@
         </div>
     </section>
     <!-- FIM SECAO CATEGORIAS GIFS FIXED -->
+
+
+    <!-- INICIO CHAT -->
+    <div id="chat">
+        <div id="nome">
+            <span>João da Silva</span>
+        </div>
+        <i class="material-icons" id="closeChat" onclick="closeChat()" style="font-size:36px; cursor: pointer;">close</i>
+
+        <div id="mensagem">
+            <textarea id="textMens"></textarea>
+            <i class="material-icons" id="sendMen" onclick="envMen()" style="font-size:36px">send</i>
+        </div>
+    </div>
+    <!-- FIM CHAT -->
+
     
-    
+    <script src="/js/chat.js"></script>
     <script src="/js/perfilprestador.js"></script>
     <script src="/js/gifsLib.js"></script>
     <script src="/js/logado.js"></script>
