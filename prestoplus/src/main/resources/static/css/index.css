@@ -274,7 +274,6 @@ span#direitos {
         width: 200px;
     }
 }
-
 .estrelas input[type=radio] {
   display: none;
 }
@@ -288,5 +287,7 @@ span#direitos {
 .estrelas input[type=radio]:checked ~ label i.fa:before {
   color: #CCC;
 }
+
+
 
 
