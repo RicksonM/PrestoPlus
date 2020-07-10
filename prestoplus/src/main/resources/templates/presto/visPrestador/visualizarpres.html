@@ -42,7 +42,7 @@
        
                   <!-- Container logado -->
    
-   		<div  class="containerLog1" th:if="${session.user != null}">
+   		<div  class="containerLog" th:if="${session.user != null}">
 			<img class="borda" style="border-radius: 45px; width:45px; height:45px;" th:if="${session.user.file != null}"  th:src="|/img/perfil/${session.user.file}|"  alt="foto do perfil">
    			<img class="borda" style="border-radius: 45px; width:45px; height:45px;" th:unless="${session.user.file != null}"   src="/img/prestologo.png"  alt="foto do perfil">
             <span th:text="${session.user != null ?  session.user.email : ''}" class="nome"><span class="cliPres"></span></span>
@@ -149,7 +149,7 @@
 	                <i class='far fa-star' id="sQuatro" style='font-size:20px; color: #FBBD08;'></i>
 	             </div>
             </div>
-            
+            <!-- Temporario para mostrar classificação correta  -->
 
             <div class="endPrest">
                 <span class="LocPres">Localização</span><br>
@@ -444,7 +444,7 @@
     <!-- INICIO CHAT -->
     <div id="chat">
         <div id="nome">
-            <span>João da Silva</span>
+            <span th:text="${prestador.PNomeSolicitante}" >João da Silva</span>
         </div>
         <i class="material-icons" id="closeChat" onclick="closeChat()" style="font-size:36px; cursor: pointer;">close</i>
 

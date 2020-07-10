@@ -93,7 +93,7 @@ ul#logCad {
     display: inline-block;
     position: relative;
     top: -22px;
-    right: -400px;
+    right: -300px;
     font-family: LatoBold;
 }
 
@@ -274,3 +274,19 @@ span#direitos {
         width: 200px;
     }
 }
+
+.estrelas input[type=radio] {
+  display: none;
+}
+.estrelas label i.fa{
+  font-size: 2.5em
+}
+.estrelas label i.fa:before {
+  content:'\f005';
+  color: #FC0;
+}
+.estrelas input[type=radio]:checked ~ label i.fa:before {
+  color: #CCC;
+}
+
+

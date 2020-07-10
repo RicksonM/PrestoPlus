@@ -251,7 +251,7 @@ public class UsuarioController {
 	/* -----------------------BUSCA PELO INPUT DE BUSCAR------------------------------- */
 	
 	
-	@PostMapping("/pesquisaProfissao")
+	@RequestMapping("/pesquisaProfissao")
 	public ModelAndView findpro(@RequestParam("profissao") String profissao, HttpSession session){
 		Usuario usuario = ur.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName());
 		ModelAndView resultado = new ModelAndView("presto/busca/buscar");

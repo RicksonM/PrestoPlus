@@ -66,7 +66,9 @@ public class ContratoController {
 			
 			if (file.isEmpty()) {
 	            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
-	            return "redirect:uploadStatus";
+	            contrato.setStatus("Pendente");
+				cr.save(contrato);
+				return "redirect:/";
 	        }
 
 	        try {
@@ -123,7 +125,7 @@ public class ContratoController {
 		public String detail (Contrato contrato) {
 	
 			cr.save(contrato);
-			return "redirect:/cadsucess";
+			return "redirect:/";
 		}
 		
 		

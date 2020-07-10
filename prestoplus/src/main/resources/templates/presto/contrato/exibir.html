@@ -43,8 +43,8 @@
        
                   <!-- Container logado -->
    
-   		<div  class="containerLog1" th:if="${session.user.email != null}">
-   			<img class="borda" th:if="${session.user.file != null}"  th:src="|/img/perfil/${session.user.file}|"  alt="foto do perfil">
+   		<div  class="containerLog" th:if="${session.user.email != null}">
+   			<img class="borda" style="border-radius:45px;" th:if="${session.user.file != null}"  th:src="|/img/perfil/${session.user.file}|"  alt="foto do perfil">
    			<img class="borda" th:unless="${session.user.file != null}"   src="/img/prestologo.png"  alt="foto do perfil">
             <span th:text="${session.user != null ?  session.user.email : ''}" class="nome"><span class="cliPres"></span></span>
              <div class="inforPerf">
@@ -118,17 +118,35 @@
 		
 		
 		
-
+<!--  
 		 <div th:if="${contratos.status != 'Aceito'}">
-	     <label for="inpDinheiro" class="labContrato">Aceitar proposta?</label>
-		 <select  name="andamento" th:field="*{status}" id="estado"  class="selClas" onchange="mudarEst(this.value)">
-                <option class="optClas" value="Aceito" >Aceitar</option>
-                <option class="optClas" value="Recusado">Recusar</option>
-                <option class="optClas" value="Pendente">Contra-proposta</option>
-         </select>
-         </div>
-         <div th:unless="${contratos.status != 'Aceito'}">
-         </div>
+			
+				 <label for="inpDinheiro" class="labContrato">Aceitar proposta?</label>
+					 <select  name="andamento" th:field="*{status}" id="estado"  class="selClas" onchange="mudarEst(this.value)">
+			                <option class="optClas" value="Aceito" >Aceitar</option>
+			                <option class="optClas" value="Recusado">Recusar</option>
+			                <option class="optClas" value="Contra-Proposta">Contra-proposta</option>
+			         </select>
+		   </div>      
+      
+		 	<div th:unless="${contratos.status != 'Aceito'}">
+         	</div>
+         	-->
+			<div th:if="${(contratos.contratante == session.user.email && contratos.status == 'Pendente') || (contratos.status == 'Aceito')}" >
+	
+	         </div>
+	         
+		     <div th:unless="${(contratos.contratante == session.user.email &&  contratos.status == 'Pendente') || (contratos.status == 'Aceito')}" >
+		      <label for="inpDinheiro" class="labContrato">Aceitar proposta?</label>
+				 <select  name="andamento" th:field="*{status}" id="estado"  class="selClas" onchange="mudarEst(this.value)">
+		                <option class="optClas" value="Aceito" >Aceitar</option>
+		                <option class="optClas" value="Recusado">Recusar</option>
+		                <option class="optClas" value="Contra-Proposta">Contra-proposta</option>
+		         </select>
+		   	</div> 
+			
+         
+         
 
         <input type="checkbox" name="" id="checkAceitarCli" class="inpCheck">
         <label for="checkAceitarCli" class="labContrato check mar">Estou de acordo com o contrato</label>
