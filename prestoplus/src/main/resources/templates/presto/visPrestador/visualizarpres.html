@@ -444,13 +444,18 @@
     <!-- INICIO CHAT -->
     <div id="chat">
         <div id="nome">
-            <span th:text="${prestador.PNomeSolicitante}" >João da Silva</span>
+            <span th:text="${prestador.PNomeSolicitante}">João da Silva</span>
+            <div id="statusOnline"></div> <span id="OnOrOff">Offline</span>
         </div>
-        <i class="material-icons" id="closeChat" onclick="closeChat()" style="font-size:36px; cursor: pointer;">close</i>
+        <i class="material-icons" id="closeChat" onclick="closeChat()" style="font-size:36px; cursor: pointer;
+        color: #00000099; display: none;">close</i>
+
+        <div id="MensagensEnviadas"></div>
 
         <div id="mensagem">
-            <textarea id="textMens"></textarea>
-            <i class="material-icons" id="sendMen" onclick="envMen()" style="font-size:36px">send</i>
+            <textarea id="textMens" placeholder="Digite sua mensagem" oninput="verMens()"></textarea>
+            <i class="material-icons" id="sendMen" onclick="envMen()" style="font-size:36px; 
+            color: #000000B3;">send</i>
         </div>
     </div>
     <!-- FIM CHAT -->
