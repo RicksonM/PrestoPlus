@@ -95,7 +95,7 @@ function fEditarPer() {
 
 
 //Status contratos
-window.addEventListener("load", () => {
+setInterval(() => {
   let status = document.getElementsByClassName("status");
 
   for (let index = 0; index < status.length; index++) {
@@ -107,6 +107,8 @@ window.addEventListener("load", () => {
       status[index].style.color = "rgb(75, 181, 67)";
     } else if(statussEsp === "Recusado" || statussEsp === "recusado") {
       status[index].style.color = "#F32013";
+    } else if(statussEsp === "Contra-Proposta" || statussEsp === "Contra-proposta") {
+      status[index].style.color = "#2185D0";
     }
   }
-});
+}, 1000);
