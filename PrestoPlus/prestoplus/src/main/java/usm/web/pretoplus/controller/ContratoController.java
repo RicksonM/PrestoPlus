@@ -57,7 +57,7 @@ public class ContratoController {
 		
 		
 	
-		private static String UPLOADED_FOLDER = "C:\\Users\\ricks\\Desktop\\gitpresto\\prestoplus\\src\\main\\resources\\static\\img\\contratos\\";
+		private static String UPLOADED_FOLDER = "C:\\Users\\ricks\\Desktop\\gitpresto\\PrestoPlus\\prestoplus\\src\\main\\resources\\static\\img\\perfil\\";
 		
 		
 		@PostMapping("/contratos1")

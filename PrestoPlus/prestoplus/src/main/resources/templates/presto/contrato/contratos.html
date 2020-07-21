@@ -116,7 +116,7 @@
 			
 			
             <div  th:each="contratos: ${contratos}"  class="divContrato">            	
-                 <p>(<span th:text="${contratos.status}"  class="status" > </span>- <span th:text="${contratos.contratado == session.user.email ?  'Prestador' : 'Cliente'}"  class="status"></span> )</p>
+                 <p>(<span th:text="${contratos.status}" class="status"> </span>-<span th:text="${contratos.contratado == session.user.email ?  'Prestador' : 'Cliente'}"  class="status"></span>)</p>
                  <span class="desContr" th:text="${contratos.descricao}"> </span>
                  <button class="btnExibirContr"> <a th:href="@{/fimcontrato/{id}(id=${contratos.id})}"> Finalizar </a></button>
                 <button class="btnExibirContr"> <a th:href="@{/exibir/{id}(id=${contratos.id})}"> Exibir </a></button>

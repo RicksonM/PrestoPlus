@@ -55,7 +55,7 @@ public class UsuarioController {
 		return resultado;
 	}	
 	
-	private static String UPLOADED_FOLDER = "C:\\Users\\ricks\\Desktop\\gitpresto\\prestoplus\\src\\main\\resources\\static\\img\\perfil\\";
+	private static String UPLOADED_FOLDER = "C:\\Users\\ricks\\Desktop\\gitpresto\\PrestoPlus\\prestoplus\\src\\main\\resources\\static\\img\\perfil\\";
 
 	
 	//URL que recebe, trata e salva os dados no banco de dados
