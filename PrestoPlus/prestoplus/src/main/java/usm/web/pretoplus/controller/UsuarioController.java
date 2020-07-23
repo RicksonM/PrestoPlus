@@ -65,7 +65,11 @@ public class UsuarioController {
 
 		if (file.isEmpty()) {
             redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
-            return "redirect:uploadStatus";
+            user.setSenha(new BCryptPasswordEncoder().encode(user.getPassword())); //Criptografando a senha para salvar no banco de dados
+    		user.setTipo("cliente");    //Definido FLAG, se é cliente ou prestador
+    		user.setEmail(user.getEmail());
+    		ur.save(user);
+    		return "redirect:/cadsucess";
         }
 
         try {
@@ -78,11 +82,15 @@ public class UsuarioController {
             redirectAttributes.addFlashAttribute("message",
                     "You successfully uploaded '" + file.getOriginalFilename() + "'");
             user.setFile(file.getOriginalFilename());
+            user.setSenha(new BCryptPasswordEncoder().encode(user.getPassword())); //Criptografando a senha para salvar no banco de dados
+    		user.setTipo("cliente");    //Definido FLAG, se é cliente ou prestador
+    		user.setEmail(user.getEmail());
+    		ur.save(user);
+    		return "redirect:/cadsucess";
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
 		user.setSenha(new BCryptPasswordEncoder().encode(user.getPassword())); //Criptografando a senha para salvar no banco de dados
 		user.setTipo("cliente");    //Definido FLAG, se é cliente ou prestador
 		user.setEmail(user.getEmail());

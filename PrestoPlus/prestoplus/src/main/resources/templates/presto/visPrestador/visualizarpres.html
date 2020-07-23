@@ -238,18 +238,20 @@
            
         </section>
         <!-- FIM RESENHAS -->
-
-        <button class="iniciarChat" onclick="window.open('@{https://api.whatsapp.com/send?1=pt_BR&phone=55{celular}(celular = ${prestador.phone})}')">
-      
-          <!-- LINK PARA ENVIAR A MENSAGEM PARA O WPP --> 
-            <!-- <a th:each="prestador: ${prestador}" th:href="@{https://api.whatsapp.com/send?1=pt_BR&phone=55{celular}(celular = ${prestador.phone})}"> -->
-
-            <!--  FIM LINK -->
+		
+		<a th:each="prestador: ${prestador}" th:href="@{https://api.whatsapp.com/send?1=pt_BR&phone=55{celular}(celular = ${prestador.phone})}">
+		        <button class="iniciarChat"> <!-- onclick="window.open('@{https://api.whatsapp.com/send?1=pt_BR&phone=55{celular}(celular = ${prestador.phone})}')" -->
+		      
+		          <!-- LINK PARA ENVIAR A MENSAGEM PARA O WPP --> 
+		            <!-- <a th:each="prestador: ${prestador}" th:href="@{https://api.whatsapp.com/send?1=pt_BR&phone=55{celular}(celular = ${prestador.phone})}"> -->
+		
+		            <!--  FIM LINK -->
+		            
+		            <i class="material-icons">message</i>
+		            <span class="desChat">Chat</span>
             
-            <i class="material-icons">message</i>
-            <span class="desChat">Chat</span>
-            <!-- </a>  -->
-        </button>
+        		</button>
+         </a>
 
         <button class="iniciarChat libras" onclick="abrirGifs()">
             <i class="fa fa-sign-language"></i>
