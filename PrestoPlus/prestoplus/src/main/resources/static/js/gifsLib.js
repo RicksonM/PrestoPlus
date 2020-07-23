@@ -1,7 +1,7 @@
 var todasPalavras = "";
 var valorDoTextArea = document.getElementById("tMLibras");
-
-
+let link = document.getElementById("enWhats");
+let numeroWhats = "";
 
 
 
@@ -116,3 +116,16 @@ function apaTexto() {
     valorDoTextArea.value = "";
     todasPalavras = "";
 }
+
+setTimeout(() => {
+    numeroWhats = link.href;
+}, 500);
+
+setInterval(() => {
+     if (valorDoTextArea.value.length >= 1) {
+        link.href = `${numeroWhats}${valorDoTextArea.value}`;
+        console.log(`${numeroWhats}${valorDoTextArea.value}`);
+     } else {
+        link.href = numeroWhats;
+     }
+}, 600);

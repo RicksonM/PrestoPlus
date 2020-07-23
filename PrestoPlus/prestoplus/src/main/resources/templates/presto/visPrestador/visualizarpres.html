@@ -237,7 +237,7 @@
 
            
         </section>
-        <!-- FIM RESENHAS -->
+        <!-- FIM RESENHAS -->                              
 		
 		<a th:each="prestador: ${prestador}" th:href="@{https://api.whatsapp.com/send?1=pt_BR&phone=55{celular}(celular = ${prestador.phone})}">
 		        <button class="iniciarChat"> <!-- onclick="window.open('@{https://api.whatsapp.com/send?1=pt_BR&phone=55{celular}(celular = ${prestador.phone})}')" -->
@@ -374,6 +374,9 @@
         <i class="material-icons" onclick="copTexto()" title="Copiar texto" style="font-size:28px; position: absolute; bottom: 15px; left: 25px; cursor: pointer;">content_copy</i>
         <i class='far fa-trash-alt' onclick="apaTexto()" title="Apagar texto" style='font-size:25px; color: #ff0000b2; position: absolute; bottom: 15px; right: 25px; cursor: pointer;'></i>
         <span id="sptCop" class="tCopSuc"></span>
+        <a id="enWhats" href="http://api.whatsapp.com/send?1=pt_BR&phone=5581987425935&text=" title="Enviar no WhatsApp">
+            <i class='fab fa-whatsapp'></i>
+        </a>
     </div>
     <!-- FIM BOX PALAVRAS LIBRAS -->
 
