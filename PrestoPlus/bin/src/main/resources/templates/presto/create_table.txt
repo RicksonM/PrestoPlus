@@ -1,0 +1,9 @@
+Create table solicitante (
+	ID Int UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+	nome Varchar(30) NOT NULL,
+	cpf Int NOT NULL,
+	email Varchar(40) NOT NULL,
+	telefone int NOT NULL,
+	celular int NOT NULL,
+	senha Varchar(30)
+	Primary Key (ID)) ENGINE = MyISAM;

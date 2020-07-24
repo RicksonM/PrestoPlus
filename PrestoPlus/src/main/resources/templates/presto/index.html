@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html  xmlns:th="https://www.thymeleaf.org" lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index1.css"> <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="/css/logado.css">
+    <link rel="stylesheet" href="/css/buscar.css">
+	
+    <title>Presto</title>
+</head>
+
+<body>
+    <!-- INICIO HEADER -->
+     <header >
+        <a href="index.html" id="logo">
+            <img src="/img/prestologo.png" alt="Logo">
+            <span id="titLogo">Presto</span>
+        </a>
+        <!-- Verificações feitas com tymeleaf para saber se o usuário está logado ou não  -->
+        <form  action="/pesquisaProfissao" method="post" id="buscaPre">
+            <input type="search" name="profissao"  placeholder="Busque por profissionais..." id="inpSearch">
+            <button type="submit" id="busca"><img src="/img/icon/search-solid.svg" alt="Buscar"></button>
+        </form>
+        
+    
+        <ul th:if="${session.user != null}" id="logCad">
+            <li><a th:href="@{/busca}">Buscar</a></li>
+             <li><a th:href="${session.user != null ?  '' : '@{/inseriruser}'}"></a></li>
+        </ul>
+        
+         <ul th:unless="${session.user != null}" id="logCad">
+            <li><a th:href="@{/busca}">Buscar</a></li>
+            <li><a th:href="@{/inseriruser}">Cadastre-se</a></li>
+            <li><a th:href="@{/login}">Login</a></li>
+        </ul>
+       
+                  <!-- Container logado -->
+   
+   		<div  class="containerLog" th:if="${session.user != null}">
+				<img class="borda" style="border-radius: 45px;width:45px; height:45px;" th:if="${session.user.file != null}"  th:src="|/img/perfil/${session.user.file}|"  alt="foto do perfil">
+   				<img class="borda" style="border-radius: 45px; width:45px; height:45px; " th:unless="${session.user.file != null}"   src="/img/prestologo.png"  alt="foto do perfil">		
+            <span th:text="${session.user != null ?  session.user.email : ''}" class="nome"><span class="cliPres"></span></span>
+             <div class="inforPerf">
+                <span><a th:href="@{/editarS/{login}(login=${session.user.email})}"><span class="infCliPres" th:text="${session.user != null ?  session.user.email+' (Cliente)' : ''}" onclick="mudarStatPrest()"></span></a></span>
+                
+                <span><a th:href="@{/cadP/{login}(login=${session.user.email})}"><span class="infCliPres" th:text="${session.user != null ?  session.user.email+' (Prestador)' : ''}" onclick="mudarStatPrest()"></span></a></span>
+                <hr class="hrDiv">
+                <span class="sobrePerfil"><a th:href="@{/teste/{email}(email=${session.user.email})}">Meus contratos</a></span>
+                <span class="sobrePerfil"><a th:href="@{/editarS/{login}(login=${session.user.email})}">Editar perfil</a></span>
+                <span class="sobrePerfil"><a href="#">Meu perfil</a></span>
+                <hr class="hrDiv">
+                <span class="sair"><a th:href="@{/logout}">Sair</a></span>
+            </div>
+        </div>
+        <div th:unless="${session.user != null}">
+        
+        </div>
+
+          
+    </header>
+    <!-- FIM HEADER -->
+
+    <!-- INICIO NAV -->
+   <nav id="index">
+        <ul id="menu">
+            <li><a th:href="@{/}">Início</a></li>
+            <li><a th:href="@{/sobre}">Sobre</a></li>
+            <li><a th:href="@{#}">Contato</a></li>
+        </ul>
+    </nav>
+    <!-- FIM NAV -->
+
+    <!-- INICIO DO CORPO DO INDEX-->
+    <div class="rowl">
+        <div class="coluna1">
+            <img src="img/Cliente_Prestador.png" alt="" style="width: 100%">
+        </div>
+    </div>
+    <div class="row">
+        <div class="coluna2">
+            <a th:href="@{/inseriruser}">
+                <img src="img/freelance.png" alt="" style="width:100%" id="dist">
+            </a>
+        </div>
+        <div class="coluna2">
+            <a th:href="@{/busca}">
+                <img src="img/solicitante.png" alt="" style="width:100%" id="dist">
+            </a>
+        </div>
+    </div>
+
+    <!-- FIM DO CORPO DO INDEX-->
+
+    <!-- INICIO FOOTER -->
+    <footer>
+        <a th:href="@{/}" id="logoFooter">
+            <img src="img/prestologo.png" alt="Logo">
+            <span id="titLogoFooter">Presto</span>
+        </a>
+        <span id="direitos">2011-2020 © Todos os direitos reservados. Presto® é uma marca registrada de Presto Tecnologia.</span>
+    </footer>
+    <!-- FIM FOOTER -->
+</body>
+
+</html>

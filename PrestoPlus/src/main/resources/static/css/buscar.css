@@ -1,0 +1,230 @@
+/* INICIO PESQUISA DE RESULTADOS */
+div.contPesquisa {
+    width: 1000px;
+    margin: 30px auto 0 auto;
+}
+
+div.contPesquisa::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+p.titPri {
+    font-family: LatoBold;
+    font-size: 18px;
+    color: #000000DE;
+}
+
+p.titSeg {
+    font-family: LatoMedium;
+    font-size: 15px;
+    color: #000000DE;
+    margin-top: 5px;
+}
+
+/* filtro principal*/
+form.filtro {
+    width: 270px;
+    border: 1px solid #848484ab;
+    border-radius: 4px;
+    margin-top: 91px;
+    display: inline-block;
+    padding: 20px 15px;
+}
+
+
+
+h3.titFil {
+    font-family: LatoMedium;
+    font-size: 15px;
+    color: #000000DE;
+    text-align: center;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.157);
+}
+
+/* labels */
+label.titLab {
+    font-family: LatoRegular;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.507);
+    margin: 8px 0 3px 0;
+    display: block;
+}
+
+label.pri {
+    margin-top: 13px;
+}
+
+/* selects */
+select.selClas {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #DEDEDF;
+    border-radius: 4px;
+    font-family: LatoMedium;
+    font-size: 14px;
+}
+
+/* lista de profissionias */
+div.resulBus {
+  /* background-color: rgba(236, 171, 184, 0.376); */
+  width: 650px;
+  margin-top: 14px;
+  float: right;
+}
+
+/* filtro de relevancia */
+form.relev {
+    width: auto;
+    border: none;
+    border-radius: 4px;
+    margin-top: 0;
+    display: inline-block;
+    padding: 0 0;
+}
+
+select.rel {
+    width: 373px;
+}
+
+a.btnPubli {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    width: 137px;
+    padding: 9px;
+    font-family: LatoBold;
+    font-size: 14px;
+    color: #FFFFFF;
+    background-color: #767676;
+    border: 0;
+    border-radius: 4px;
+    margin-left: 136px;
+    cursor: pointer;
+}
+
+/* container de profissional  */
+div.listaRes {
+    width: 650px;
+    margin-top: 13px;
+    padding: 25px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.417);
+    position: relative;
+}
+
+div.semMar {
+    margin-top: 0px;
+}
+
+span.nomeEnc {
+    font-family: LatoMedium;
+    font-size: 15px;
+    color: #000000DE;
+}
+
+span.proEnc {
+    font-family: LatoBold;
+}
+
+span.clasEstr {
+    font-family: LatoRegular;
+    font-size: 15px;
+    color: #000000DE;
+    position: absolute;
+    top: 20px;
+    left: 449px;
+}
+
+div.listaRes i.fa-star {
+    margin-left: -5px;
+}
+
+span.desProEnc {
+    font-family: LatoMedium;
+    font-size: 14px;
+    color: #000000CC;
+    display: block;
+    margin-top: 5px;
+}
+
+span.cidade {
+    font-family: LatoRegular;
+    font-size: 12px;
+    color: #000000CC;
+}
+
+a.btnVisPer {
+    display: block;
+    margin-top: 25px;
+    font-family: LatoBold;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    width: 111px;
+    padding: 9px;
+    background-color: #2185D0;
+    color: #FFFFFF;
+    border-radius: 4px;
+}
+
+/* seleção de paginas */
+div.pagNav {
+    margin: 50px 0 110px 535px;
+}
+
+div.pagNav > ul {
+    list-style-type: none;
+    font-family: LatoRegular;
+    font-size: 14px;
+    color: #000000DE;
+}
+
+div.pagNav > ul > li {
+    display: inline-block;
+    margin-right: 18px;
+}
+
+div.pagNav > ul > li > a {
+    text-decoration: none;
+    color: #000000DE;
+}
+
+div.pagNav > ul > li > a:hover {
+    color: #2185d0;
+    text-decoration: underline;
+}
+
+
+.zoom {
+	overflow: hidden;
+}
+
+.zoom img {
+	max-width: 100%;
+	-moz-transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.zoom:hover img {
+	-moz-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+.text-item {
+	position: absolute;
+	left: 5%;
+	right: 5%;
+	bottom: 20px;
+	z-index: 10;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: #ffffff;
+	text-align: center;
+	font-weight: 700;
+	text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+/* FIM PESQUISA DE RESULTADOS */

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/cadastro.css">
+    <link rel="stylesheet" href="/css/logado.css">
+    <link rel="stylesheet" href="/css/buscar.css">
+    
+    <title>Buscar</title>
+</head>
+
+<body>
+    <!-- INICIO HEADER -->
+<header >
+        <a href="index.html" id="logo">
+            <img src="/img/prestologo.png" alt="Logo">
+            <span id="titLogo">Presto</span>
+        </a>
+        <!-- Verificações feitas com tymeleaf para saber se o usuário está logado ou não  -->
+        <form  action="/pesquisaProfissao" method="post" id="buscaPre">
+            <input type="search" name="profissao"  placeholder="Busque por profissionais..." id="inpSearch">
+            <button type="submit" id="busca"><img src="/img/icon/search-solid.svg" alt="Buscar"></button>
+        </form>
+        
+    
+        <ul th:if="${session.usu != null}" id="logCad">
+            <li><a th:href="@{/busca}">Buscar</a></li>
+             <li><a th:href="${session.usu != null ?  '' : '@{/inseriruser}'}"></a></li>
+        </ul>
+        
+         <ul th:unless="${session.usu != null}" id="logCad">
+            <li><a th:href="@{/busca}">Buscar</a></li>
+            <li><a th:href="@{/inseriruser}">Cadastre-se</a></li>
+            <li><a th:href="@{/login}">Login</a></li>
+        </ul>
+       
+                  <!-- Container logado -->
+                  
+   		<div  class="containerLog" th:if="${session.usu != null}">
+				<img class="borda" style="border-radius: 45px; width:45px; height:45px;" th:if="${session.usu.file != null}"  th:src="|/img/perfil/${session.usu.file}|"  alt="foto do perfil">
+   				<img class="borda" style="border-radius: 45px; width:45px; height:45px;" th:unless="${session.usu.file != null}"   src="/img/prestologo.png"  alt="foto do perfil">		
+            <span th:text="${session.usu != null ?  session.usu.email : ''}" class="nome"><span class="cliPres"></span></span>
+             <div class="inforPerf">
+                <span><a th:href="@{/editarS/{login}(login=${session.usu.email})}"><span class="infCliPres" th:text="${session.usu != null ?  session.usu.email+' (Cliente)' : ''}" onclick="mudarStatPrest()"></span></a></span>
+                
+                <span><a th:href="@{/cadP/{login}(login=${session.usu.email})}"><span class="infCliPres" th:text="${session.usu != null ?  session.usu.email+' (Prestador)' : ''}" onclick="mudarStatPrest()"></span></a></span>
+                <hr class="hrDiv">
+                <span class="sobrePerfil"><a th:href="@{/teste/{email}(email=${session.usu.email})}">Meus contratos</a></span>
+                <span class="sobrePerfil"><a th:href="@{/editarS/{login}(login=${session.usu.email})}">Editar perfil</a></span>
+                <span class="sobrePerfil"><a href="#">Meu perfil</a></span>
+                <hr class="hrDiv">
+                <span class="sair"><a th:href="@{/logout}">Sair</a></span>
+            </div>
+        </div>
+        <div th:unless="${session.usu != null}">
+        
+        </div>
+
+          
+    </header>
+    
+    <!-- FIM HEADER -->
+    <!-- INICIO NAV -->
+     <nav id="index">
+        <ul id="menu">
+            <li><a th:href="@{/}">Início</a></li>
+            <li><a th:href="@{/sobre}">Sobre</a></li>
+            <li><a th:href="@{#}">Contato</a></li>
+        </ul>
+    </nav>
+    <!-- FIM NAV -->
+
+    <!-- INICIO PESQUISA DE RESULTADOS -->
+    <div class="contPesquisa">
+        <!-- Inicio container resultado de busca -->
+        <div class="resultBusca">
+            <p class="titPri">Resultado de pesquisa</p>
+            <p class="titSeg">Encontramos <span class="numEnc">52</span> prestadores para sua busca</p>
+        </div>
+
+        <!-- Filtro -->
+        <form action="/filtro" method="post" class="filtro">
+            <h3 class="titFil">Filtro</h3>
+
+            <!-- estados -->
+            <label for="estado" class="titLab pri">Estado</label>
+            <select name="local" id="estado" class="selClas" onchange="mudarEst(this.value)">
+                <option class="optClas">Selecione o estado</option>
+                <option class="optClas" value="pernambuco">Pernambuco</option>
+                <option class="optClas" value="paraíba">Paraíba</option>
+                <option class="optClas" value="ceará">Ceará</option>
+            </select>
+
+            <!-- cidades -->
+            <label for="cidade" class="titLab">Cidade</label>
+            <select name="" id="cidade" class="selClas">
+                <option class="optClas">Selecione o estado</option>
+            </select>
+
+            <!-- serviços -->
+            <label for="tipoServ" class="titLab">Tipo de serviço</label>
+            <select name="profissao" id="tipoServ" class="selClas">
+                <option class="optClas">Selecione o estado</option>
+                <option class="optClas" value="construçãocivil" disabled>Construção Civil</option>
+                <option class="optClas" value="soldagem" disabled>Soldagem</option>
+                <option class="optClas" value="marceneiro" disabled>Marcenaria</option>
+            </select>
+
+            <!-- turno de trabalho -->
+            <label for="turDisp" class="titLab">Turno de disponibilidade</label>
+            <select name="" id="turDisp" class="selClas">
+                <option class="optClas">Selecione o estado</option>
+                <option class="optClas" value="manhã" disabled>Manhã</option>
+                <option class="optClas" value="tarde" disabled>Tarde</option>
+                <option class="optClas" value="noite" disabled>Noite</option> 
+            </select>
+            <br><br>
+             <button type="submit" id="btnEntrar">Enviar</button>
+        </form>
+
+
+        <!-- Lista de profissionias -->
+        <div class="resulBus">
+            <!-- Filtro de relevancia -->
+            <form action="" method="post" class="filtro relev">
+                <select name="" id="filRel" class="selClas rel" onchange="mudarRel()">
+                    <option class="optClas">Relevância</option>
+                    <option class="optClas" value="maisrecentes">Mais recentes</option>
+                    <option class="optClas" value="maisantigos">Mais antigos</option>
+                </select>
+            </form>
+
+            <!-- Profissional um -->
+            <div class="listaRes" th:each="prest: ${prest}">
+                <span> </span> <span th:text="${prest.profissao}" class="proEnc"> </span> <span th:text="${prest.PNomeSolicitante}" class="nomeEnc">  </span> 
+                <span class="clasEstr">Classificação
+                    <i class='far fa-star' style='font-size:20px; color: #FBBD08; margin-left: 5px;'></i>
+                    <i class='far fa-star' style='font-size:20px; color: #FBBD08;'></i>
+                    <i class='far fa-star' style='font-size:20px; color: #FBBD08;'></i>
+                    <i class='far fa-star' style='font-size:20px; color: #FBBD08;'></i>
+                    <i class='far fa-star' style='font-size:20px; color: #FBBD08;'></i>
+                </span>
+
+                <span class="desProEnc" th:text="${prest.descricao}" ></span>
+                <i class='fas fa-map-marker-alt' style="margin-top: 15px;"></i>
+                <span class="cidade" th:text="${prest.local}">Recife - PE</span>
+       				
+                 <a th:href="@{/prestador/{email}(email=${prest.email})}" class="btnVisPer">Visualizar</a>  
+         
+                
+            </div>
+
+            <!-- Profissional dois 
+            <div class="listaRes semMar">
+                <span class="nomeEnc"><span class="proEnc">Pedreiro</span> - João da Silva dos Santos</span>
+                <span class="clasEstr">Classificação
+                    <i class='far fa-star' style='font-size:20px; color: #FBBD08; margin-left: 5px;'></i>
+                    <i class='far fa-star' style='font-size:20px; color: #FBBD08;'></i>
+                    <i class='far fa-star' style='font-size:20px; color: #FBBD08;'></i>
+                    <i class='far fa-star' style='font-size:20px; color: #FBBD08;'></i>
+                    <i class='far fa-star' style='font-size:20px; color: #FBBD08;'></i>
+                </span>
+                
+                <span class="desProEnc">Trabalho com construção de casas há mais de cinco anos.</span>
+                <i class='fas fa-map-marker-alt' style="margin-top: 15px;"></i>
+                <span class="cidade">Recife - PE</span>
+
+                <a href="visualizarpres.html" class="btnVisPer">Visualizar</a>
+            </div>
+
+            <!-- Profissional tres 
+            <div class="listaRes semMar">
+                <span class="nomeEnc"><span class="proEnc">Pedreiro</span> - João da Silva dos Santos</span>
+                <span class="clasEstr">Classificação
+                    <i class='far fa-star' style='font-size:20px; color: #FBBD08; margin-left: 5px;'></i>
+                    <i class='far fa-star' style='font-size:20px; color: #FBBD08;'></i>
+                    <i class='far fa-star' style='font-size:20px; color: #FBBD08;'></i>
+                    <i class='far fa-star' style='font-size:20px; color: #FBBD08;'></i>
+                    <i class='far fa-star' style='font-size:20px; color: #FBBD08;'></i>
+                </span>
+
+                <span class="desProEnc">Trabalho com construção de casas há mais de cinco anos.</span>
+                <i class='fas fa-map-marker-alt' style="margin-top: 15px;"></i>
+                <span class="cidade">Recife - PE</span>
+
+                <a href="visualizarpres.html" class="btnVisPer">Visualizar</a>
+            </div>
+-->
+        </div>  
+    </div>
+    <!-- FIM PESQUISA DE RESULTADOS -->
+
+    <div class="pagNav">
+        <ul>
+            <li>Página</li>
+            <li><a href="buscar.html">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+        </ul>
+    </div>
+
+    <!-- INICIO FOOTER -->
+    <footer>
+        <a href="index.html" id="logoFooter">
+            <img src="img/prestologo.png" alt="Logo">
+            <span id="titLogoFooter">Presto</span>
+        </a>
+        <span id="direitos">2011-2020 © Todos os direitos reservados. Presto® é uma marca registrada de Presto
+            Tecnologia.</span>
+    </footer>
+    <!-- FIM FOOTER -->
+
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="/js/logado.js"></script>
+    <script src="/js/buscar.js"></script>
+</body>
+</html>

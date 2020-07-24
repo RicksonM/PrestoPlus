@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/logado.css">
+    <link rel="stylesheet" href="/css/perfilprestador.css">
+    <link rel="stylesheet" href="/css/contratos.css">
+    <title>Contratos</title>
+</head>
+<body>
+    <!-- INICIO HEADER -->
+<header >
+        <a href="index.html" id="logo">
+            <img src="/img/prestologo.png" alt="Logo">
+            <span id="titLogo">Presto</span>
+        </a>
+        <!-- Verificações feitas com tymeleaf para saber se o usuário está logado ou não  -->
+        <form  action="/pesquisaProfissao" method="post" id="buscaPre">
+            <input type="search" name="profissao"  placeholder="Busque por profissionais..." id="inpSearch">
+            <button type="submit" id="busca"><img src="/img/icon/search-solid.svg" alt="Buscar"></button>
+        </form>
+        
+    
+        <ul th:if="${session.user != null}" id="logCad">
+            <li><a th:href="@{/busca}">Buscar</a></li>
+             <li><a th:href="${session.user != null ?  '' : '@{/inseriruser}'}"></a></li>
+        </ul>
+        
+         <ul th:unless="${session.user != null}" id="logCad">
+            <li><a th:href="@{/busca}">Buscar</a></li>
+            <li><a th:href="@{/inseriruser}">Cadastre-se</a></li>
+            <li><a th:href="@{/login}">Login</a></li>
+        </ul>
+       
+                  <!-- Container logado -->
+   
+   		<div  class="containerLog" th:if="${session.user != null}">
+   			<img class="borda" style="border-radius: 45px;" th:if="${session.user.file != null}"  th:src="|/img/perfil/${session.user.file}|"  alt="foto do perfil">
+   			<img class="borda" style="border-radius: 45px;" th:unless="${session.user.file != null}"   src="/img/prestologo.png"  alt="foto do perfil">
+   			
+            <span th:text="${session.user != null ?  session.user.email : ''}" class="nome"><span class="cliPres"></span></span>
+             <div class="inforPerf">
+                <span><a th:href="@{/editarS/{login}(login=${session.user.email})}"><span class="infCliPres" th:text="${session.user != null ?  session.user.email+' (Cliente)' : ''}" onclick="mudarStatPrest()"></span></a></span>
+                
+                <span><a th:href="@{/cadP/{login}(login=${session.user.email})}"><span class="infCliPres" th:text="${session.user != null ?  session.user.email+' (Prestador)' : ''}" onclick="mudarStatPrest()"></span></a></span>
+                <hr class="hrDiv">
+                <span class="sobrePerfil"><a th:href="@{/teste/{email}(email=${session.user.email})}">Meus contratos</a></span>
+                <span class="sobrePerfil"><a th:href="@{/editarS/{login}(login=${session.user.email})}">Editar perfil</a></span>
+                <span class="sobrePerfil"><a href="#">Meu perfil</a></span>
+                <hr class="hrDiv">
+                <span class="sair"><a th:href="@{/logout}">Sair</a></span>
+            </div>
+        </div>
+        <div th:unless="${session.user != null}">
+        
+        </div>
+    </header>
+    <!-- FIM HEADER -->
+    
+    <!-- INICIO NAV -->
+    <nav>
+        <ul id="menu">
+            <li><a th:href="@{/}">Início</a></li>
+            <li><a th:href="@{/sobre}">Sobre</a></li>
+            <li><a th:href="@{#}">Contato</a></li>
+        </ul>
+    </nav>
+    <!-- FIM NAV -->
+
+    <!-- INICIO SECAO CONTRATOS -->
+    
+     <section id="contratos">
+        <div id="perfil">
+            <p id="ePerf">Meu perfil 
+                <span onclick="aEditarPer()"> 
+                    <span><i class="material-icons" style="font-size: 18px; color: #2185D0; position: relative; top: 2px;">edit</i>Editar</span>
+                </span>
+            </p>
+
+            <div id="opcEdit">
+                <span onclick="fEditarPer()"><i class="material-icons">close</i></span>
+                <a th:href="@{/editarS/{login}(login=${session.user.email})}">Perfil cliente</a>
+                <a th:href="@{/cadP/{login}(login=${session.user.email})}">Perfil prestador</a>
+            </div>
+
+            	<div id="user">
+                 	<img class="borda" style="border-radius: 45px;" th:if="${session.user.file != null}"  th:src="|/img/perfil/${session.user.file}|"  alt="foto do perfil">
+   					<img class="borda" style="border-radius: 45px;" th:unless="${session.user.file != null}"   src="/img/prestologo.png"  alt="foto do perfil"> 
+                <div>
+                	<p>Cadastro: <span th:text="${session.user.PNomeSolicitante}"></span></p>
+                    <p th:text="${session.user.email}"></p>
+                </div>
+            </div> 
+        </div>
+    
+    
+
+
+        <!-- Todos contratos -->
+        <div id="tContratos">
+            <p>Meus contratos</p>
+            <form action="" method="post">
+                <select name="" id="">
+                    <option value="todos">Todos</option>
+                    <option value="emandamento">Em andamento</option>
+                    <option value="novos">Novos</option>
+                    <option value="antingos">Antigos</option>
+                    <option value="recusados">Recusados</option>
+                </select>
+            </form>
+			
+			
+			
+			
+            <div  th:each="contratos: ${contratos}"  class="divContrato">            	
+                 <p>(<span th:text="${contratos.status}" class="status"> </span>-<span th:text="${contratos.contratado == session.user.email ?  'Prestador' : 'Cliente'}"  class="status"></span>)</p>
+                 <span class="desContr" th:text="${contratos.descricao}"> </span>
+                 <button class="btnExibirContr"> <a th:href="@{/fimcontrato/{id}(id=${contratos.id})}"> Finalizar </a></button>
+                <button class="btnExibirContr"> <a th:href="@{/exibir/{id}(id=${contratos.id})}"> Exibir </a></button>
+				
+                <p>Início <span th:text="${contratos.datainicio}"></span> Término <span th:text="${contratos.datafim}"></span></p>
+            </div>
+<!-- 
+            <div class="divContrato">
+                <p>Reforma da casa</p>
+
+                <button class="btnExibirContr" onclick="abrirFormContrato()">Exibir</button>
+                <p>Início <span>08/09/2020</span> Término <span>31/09/2020</span></p>
+            </div>
+
+            <div class="divContrato">
+                <p>Reforma da casa</p>
+
+                <button class="btnExibirContr" onclick="abrirFormContrato()">Exibir</button>
+                <p>Início <span>08/10/2020</span> Término <span>31/11/2020</span></p>
+            </div>
+
+            <div class="divContrato">
+                <p>Reforma da casa</p>
+
+                <button class="btnExibirContr" onclick="abrirFormContrato()">Exibir</button>
+                <p>Início <span>08/10/2020</span> Término <span>31/11/2020</span></p>
+            </div>
+
+            <div class="divContrato">
+                <p>Reforma da casa</p>
+
+                <button class="btnExibirContr" onclick="abrirFormContrato()">Exibir</button>
+                <p>Início <span>08/10/2020</span> Término <span>31/11/2020</span></p>
+            </div>
+    
+     /*
+            <ul>
+                <li><a href="#">&#8592;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&#8594;</a></li>
+            </ul>
+            */
+ -->
+        </div>
+    </section>
+    <!-- FIM SECAO CONTRATOS -->
+
+    <!-- INICIO FOOTER -->
+    <footer>
+        <a href="index.html" id="logoFooter">
+            <img src="/img/prestologo.png" alt="Logo">
+            <span id="titLogoFooter">Presto</span>
+        </a>
+        <span id="direitos">2011-2020 © Todos os direitos reservados. Presto® é uma marca registrada de Presto Tecnologia.</span>
+    </footer>
+    <!-- FIM FOOTER -->
+
+    <script src="/js/contratos.js"></script>
+</body>
+</html>

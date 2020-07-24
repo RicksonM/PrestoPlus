@@ -1,0 +1,40 @@
+div.dicSuc {
+    width: 840px;
+    padding: 30px;
+    margin: 100px auto 300px auto;
+    border-radius: 10px;
+    background-color: #4bb54326;
+}
+
+img.imgSuc {
+    width: 60px;
+    display: block;
+    margin: 0 auto;
+}
+
+p.titSuc {
+    font-family: LatoMedium;
+    font-size: 32px;
+    color: #4BB543;
+    text-align: center;
+    margin: 30px 0 50px 0;
+}
+
+a.btnSuc {
+    padding: 10px 20px;
+    width: 100px;
+    text-decoration: none;
+    font-family: LatoBold;
+    font-size: 22px;
+    display: block;
+    margin: 0 auto;
+    color: #FFFFFF;
+    background-color: #2185D0;
+    border-radius: 4px;
+    border: 0;
+}
+
+a.btnSuc:hover {
+    background-color: rgb(29, 125, 199);
+}
+

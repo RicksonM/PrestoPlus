@@ -1,0 +1,293 @@
+/* INICIO FONTLATO */
+@font-face {
+    font-family: LatoRegular;
+    src: url(font/lato/Lato-Regular.ttf);
+}
+
+@font-face {
+    font-family: LatoMedium;
+    src: url(font/lato/Lato-Medium.ttf);
+}
+
+@font-face {
+    font-family: LatoBold;
+    src: url(font/lato/Lato-Bold.ttf);
+    
+}
+/* FIM FONTLATO */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 1366px;
+    margin: 0 auto;
+}
+
+
+/* INICIO HEADER */
+header {
+    width: 100%;
+    height: 80px;
+    padding: 0 13.5% 0 13.5%;
+    background-color: #2185D0;
+}
+
+a#logo {
+    position: relative;
+    top: 7px;
+    text-decoration: none;
+}
+
+span#titLogo {
+    font-size: 28px;
+    font-family: LatoBold;
+    color: #000000;
+    position: relative;
+    top: -24px;
+    left: 3px;
+}
+
+form#buscaPre {
+    display: inline-block;
+    position: relative;
+    top: -22px;
+    left: 113px;
+}
+
+input[type="search"] {
+   width: 281px;
+   height: 37px;
+   border: 1px solid #DEDEDF;
+   border-radius: 100px;
+   font-family: LatoMedium;
+   padding: 10px 40px 10px 16px;
+   color: #000000b9;
+}
+
+::placeholder {
+    color: #00000066;
+}
+
+button#busca {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    cursor: pointer;
+}
+
+button#busca > img {
+    width: 14px;
+    height: 14px;
+    opacity: 0.5;
+}
+
+/* Lista */
+ul#logCad {
+    display: inline-block;
+    position: relative;
+    top: -22px;
+    right: -300px;
+    font-family: LatoBold;
+}
+
+ul#logCad > li {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+ul#logCad > li:last-of-type {
+    margin-right: 0px;
+}
+
+ul#logCad > li > a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 16px;
+}
+/* FIM HEADER */
+
+
+/* INICIO NAV */
+nav {
+    width: 100%;
+    height: 60px;
+    padding: 0 13.5% 0 13.5%;
+    background-color: #00B5AD;
+}
+ul#menu {
+    font-family: LatoBold;
+    position: relative;
+    top: 20px;
+}
+
+ul#menu > li {
+    display: inline-block;
+    margin-left: 40px;
+}
+
+ul#menu > li:first-of-type {
+    margin-left: 0px;
+}
+
+ul#menu > li > a {
+    text-decoration: none;
+    color: #FFFFFFDE;
+    font-size: 18px;
+}
+/* FIM NAV */
+
+
+/* INICIO FOOTER */
+footer {
+    width: 100%;
+    height: 150px;
+    padding: 0 13.5% 0 13.5%;
+    background-color: #2185D0;
+}
+
+a#logoFooter {
+    position: relative;
+    top: 42px;
+    text-decoration: none;
+}
+
+span#titLogoFooter {
+    font-size: 28px;
+    font-family: LatoBold;
+    color: #000000;
+    position: relative;
+    top: -24px;
+    left: 3px;
+}
+
+span#direitos {
+    position: relative;
+    top: 17px;
+    left: 64px;
+    font-family: LatoRegular;
+    font-size: 18px;
+    color: #FFFFFFDE;
+}
+/* FIM FOOTER */
+
+
+
+/* Header responsivo */
+@media only screen and (max-width: 1300px) {
+    ul#logCad {
+        right: -30%;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    ul#logCad {
+        display: block;
+        top: 50px;
+        width: 180px;
+        margin: 0 auto;
+        right: 0;
+    }
+
+    a#logo {
+        display: block;
+        width: 155px;
+        margin: 0 auto;
+    }
+
+    header {
+        height: 200px;
+        padding: 0;
+    }
+
+    form#buscaPre {
+        display: block;
+        width: 281px;
+        margin: 0 auto;
+        top: 20px;
+        left: 0;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    ul#menu {
+        width: 245px;
+        margin: 0 auto;
+    }
+}
+
+
+
+/* Footer responsivo */
+@media only screen and (max-width: 1270px) {
+    span#direitos {
+        display: inline-block;
+        top: 28px;
+        width: 80%;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 1080px) {
+    span#direitos {
+        width: 60%;  
+    }
+}
+
+@media only screen and (max-width: 940px) {
+    span#direitos {
+        top: 45px; 
+    }
+  }
+  
+@media only screen and (max-width: 610px) {
+    a#logoFooter {
+        width: 155px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    footer {
+        height: 300px;
+    }
+
+    span#direitos {
+        width: 200px;
+        margin: 0 auto;
+        display: block;
+        left: 0;
+    }
+}
+
+@media only screen and (max-width: 330px){
+    form#buscaPre {
+        width: 200px;
+    }
+
+    input[type="search"] {
+        width: 200px;
+    }
+}
+.estrelas input[type=radio] {
+  display: none;
+}
+.estrelas label i.fa{
+  font-size: 2.5em
+}
+.estrelas label i.fa:before {
+  content:'\f005';
+  color: #FC0;
+}
+.estrelas input[type=radio]:checked ~ label i.fa:before {
+  color: #CCC;
+}
+
+
+
+

@@ -1,0 +1,169 @@
+div#chat {
+    position: fixed;
+    bottom: -273px;
+    right: 10%;
+    width: 300px;
+    height: 312px;
+    background-color: white;
+    border: 1px solid #707070;
+    transition-duration: 0.5s;
+}
+
+div#nome {
+    height: 40px;
+    border-bottom: 1px solid #707070;
+    padding: 10px;
+}
+
+div#MensagensEnviadas {
+    margin: 5px 0px 5px 0;
+    height: 200px;
+    overflow-y: auto;
+}
+
+div#MensagensEnviadas::-webkit-scrollbar {
+    width: 4px;
+}
+
+div#MensagensEnviadas::-webkit-scrollbar-track {
+    background-color: #00000094;
+}
+
+div#MensagensEnviadas::-webkit-scrollbar-thumb {
+    background-color: #00b5ad;
+}
+
+div#MensagensEnviadas::-webkit-scrollbar-thumb:hover {
+    background-color: #009b93;
+}
+
+div#nome span {
+    font-family: LatoMedium;
+    font-size: 15px;
+    color: #000000DE;
+}
+
+div#nome span:first-child {
+    display: inline-block;
+    width: 85px;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+
+div#nome > div#statusOnline {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+div#statusOnline + span {
+    font-family: LatoRegular;
+    font-size: 10px;
+    color: #000000DE;
+}
+
+div#statusOnline,
+span#OnOrOff {
+    position: relative;
+    top: -4px;
+}
+
+i#closeChat {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+}
+
+div#mensagem {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #707070;
+    background-color: white;
+}
+
+div#mensagem textarea {
+    width: 80%;
+    height: 16px;
+    border: 0;
+    resize: none;
+    padding: 0px 10px 0 10px;
+    font-family: LatoRegular;
+    outline: none;
+    margin: 15px 0 12px 0;
+}
+
+div#mensagem textarea::-webkit-scrollbar {
+    width: 4px;
+}
+
+div#mensagem textarea::-webkit-scrollbar-track {
+    background-color: #00000094;
+}
+
+div#mensagem textarea::-webkit-scrollbar-thumb {
+    background-color: #008deb;
+}
+
+div#mensagem textarea::-webkit-scrollbar-thumb:hover {
+    background-color: #009b93;
+}
+
+i#sendMen {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    cursor: pointer;
+}
+
+p.mensEnvAzul {
+    width: 260px;
+    font-family: LatoRegular;
+    font-size: 14px;
+    margin: 0 0 5px 10px;
+    padding: 5px;
+    border-radius: 0px 4px 4px 4px;
+    color: white;
+    background-color: #2185d0;
+    position: relative;
+    word-wrap: break-word;
+}
+
+p.mensEnvAzul::before {
+    content: "";
+    display: inline-block;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #2185d0  transparent transparent transparent;
+    position: absolute;
+    top: 0;
+    left: -5px;
+}
+
+p.mensEnvCinza {
+    width: 260px;
+    font-family: LatoRegular;
+    font-size: 14px;
+    margin: 0 0 5px 10px;
+    padding: 5px;
+    border-radius: 4px 0px 4px 4px;
+    color: white;
+    background-color: #707070;
+    position: relative;
+    word-wrap: break-word;
+}
+
+p.mensEnvCinza::before {
+    content: "";
+    display: inline-block;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #707070 transparent transparent transparent;
+    position: absolute;
+    top: 0;
+    right: -5px;
+}
